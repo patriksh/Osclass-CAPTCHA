@@ -1,2 +1,1 @@
-# oscplugin-advcaptcha
-Osclass Advanced CAPTCHA plugin
+# WIP Osclass Advanced CAPTCHA plugin
