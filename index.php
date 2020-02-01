@@ -9,7 +9,7 @@
 /*
 Plugin Name: Advanced CAPTCHA
 Plugin URI: https://www.zagorski-oglasnik.com/
-Description: Your number one solution for CAPTCHA straight from WEBmods workshop. reCAPTCHA V3, math, text and Q&A CAPTCHA for register, contact and add comment pages.
+Description: Your number one solution for CAPTCHA straight from WEBmods workshop. reCAPTCHA V3, math, text and Q&A CAPTCHA for login, register, contact and add comment pages.
 Version: 1.0.0
 Author: WEBmods by Zagorski Oglasnik jdoo
 Author URI: https://www.zagorski-oglasnik.com/

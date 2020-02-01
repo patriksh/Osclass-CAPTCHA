@@ -7,39 +7,86 @@
 */
 
 class AdvancedCaptcha {
+    protected $positionsEnabled;
+
     function __construct() {
-        osc_add_hook('before_html', array(&$this, 'setCaptcha'));
+        $this->positionsEnabled = advcaptcha_positions_enabled();
+        $this->setForm();
+
+        osc_add_hook('before_html', array(&$this, 'prepareCaptcha'));
         osc_add_hook('ajax_advcaptcha_refresh', array(&$this, 'refreshCaptcha'));
-        osc_add_hook('user_register_form', array(&$this, 'registerForm'));
     }
 
-    function setCaptcha() {
-        $page = Params::getParam('page');
-        $action = (Params::getParam('action') != '') ? Params::getParam('action') : 'action';
-        $pref = advcaptcha_pref('show_'.$page.'_'.$action);
+    function setForm() {
+        foreach($this->positionsEnabled as $id => $pos) {
+            $hook = $pos['hook_show'];
+            $hook_mtx = $pos['hook_show_mtx'];
 
-        if($pref) {
-            $captcha = ($pref == 'math') ? advcaptcha_generate_math() : advcaptcha_generate_text();
-            $key = advcaptcha_session_key();
-            Session::newInstance()->_setForm($key, $captcha);
-            Session::newInstance()->_keepForm($key);
+            if($hook != null) {
+                osc_add_hook($hook, array(&$this, 'showForm'));
+            }
 
-            return $captcha;
+            // if theme is Matrix, use $hook_mtx
+        }
+    }
+
+    function showForm() {
+        include ADVCAPTCHA_PATH.'views/web/form.php';
+    }
+
+    function prepareCaptcha() {
+        $page = (Params::getParam('page') != '') ? Params::getParam('page') : null;
+        $action = (Params::getParam('action') != '') ? Params::getParam('action') : null;
+        $position = array();
+
+        foreach($this->positionsEnabled as $id => $pos) {
+            if($pos['page'] == $page && $pos['action'] == $action) {
+                $pos['id'] = $id;
+                $position = $pos;
+                break;
+            }
         }
 
-        return false;
+        if(count($position) == 0) {
+            return;
+        }
+
+        $key = 'advcaptcha_'.$page.'_'.$action;
+        Session::newInstance()->_setForm($key, array('type' => $position['type'], 'problem' => $this->prepareProblem($position['type'])));
+        Session::newInstance()->_keepForm($key);
+    }
+
+    function prepareProblem($type) {
+        switch($type) {
+            case 'google':
+                $problem = null;
+            break;
+            case 'math':
+                $problem = advcaptcha_generate_math();
+            break;
+            case 'text':
+                $problem = advcaptcha_generate_text();
+            break;
+            case 'question':
+                $problem = null;
+            break;
+            default:
+                $problem = null;
+            break;
+        }
+
+        return $problem;
+    }
+
+    function prepareAjaxCaptcha() {
+
     }
 
     function refreshCaptcha() {
-        $captcha = $this->setCaptcha();
-        $answer = array_search('ans', $array);
-        unset($captcha[$answer]);
+        $type = osc_esc_html(Params::getParam('type'));
+        unset($captcha[array_search('ans', $captcha)]);
 
         echo json_encode($captcha);
-    }
-
-    function registerForm() {
-        echo '<pre>'.print_r(Session::newInstance()->_getForm(advcaptcha_session_key()), 1).'</pre>';
     }
 
 }

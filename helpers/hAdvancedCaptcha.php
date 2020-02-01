@@ -18,6 +18,10 @@ function advcaptcha_url($file = '') {
     return osc_base_url().'oc-content/plugins/'.advcaptcha_plugin().'/'.$file;
 }
 
+function advcaptcha_pref($key) {
+    return osc_get_preference($key, 'plugin_advcaptcha');
+}
+
 function advcaptcha_admin_routes() {
     return array('advancedcaptcha', 'advancedcaptcha-post');
 }
@@ -34,17 +38,77 @@ function advcaptcha_is_route($name) {
     return (Params::getParam('route') == $name);
 }
 
-/* Get list of positions (for preferences). */
+/* Get list of positions. */
 function advcaptcha_positions() {
     return array(
-        'login' => array('name' => __('Login', advcaptcha_plugin()), 'hook_show' => '', 'hook_post' => ''),
-        'register' => array('name' => __('Register', advcaptcha_plugin()), 'hook_show' => '', 'hook_post' => ''),
-        'recover' => array('name' => __('Forgotten password', advcaptcha_plugin()), 'hook_show' => '', 'hook_post' => ''),
-        'contact' => array('name' => __('Contact', advcaptcha_plugin()), 'hook_show' => '', 'hook_post' => ''),
-        'item_add' => array('name' => __('Add an item', advcaptcha_plugin()), 'hook_show' => '', 'hook_post' => ''),
-        'item_edit' => array('name' => __('Edit an item', advcaptcha_plugin()), 'hook_show' => '', 'hook_post' => ''),
-        'comment' => array('name' => __('Add a comment', advcaptcha_plugin()), 'hook_show' => '', 'hook_post' => '')
+        'login' => array(
+            'name' => __('Login', advcaptcha_plugin()),
+            'hook_show' => null,
+            'hook_post' => 'before_validating_login',
+            'page' => 'login',
+            'action' => null,
+        ),
+        'register' => array(
+            'name' => __('Register', advcaptcha_plugin()),
+            'hook_show' => 'user_register_form',
+            'hook_post' => 'before_user_register',
+            'page' => 'register',
+            'action' => 'register',
+        ),
+        'recover' => array(
+            'name' => __('Forgotten password', advcaptcha_plugin()),
+            'hook_show' => null,
+            'hook_post' => null,
+            'page' => 'login',
+            'action' => 'recover',
+        ),
+        'contact' => array(
+            'name' => __('Contact', advcaptcha_plugin()),
+            'hook_show' => 'contact_form',
+            'hook_post' => 'init_contact',
+            'page' => 'contact',
+            'action' => null,
+        ),
+        'item_add' => array(
+            'name' => __('Add an item', advcaptcha_plugin()),
+            'hook_show' => null,
+            'hook_show_mtx' => null,
+            'hook_post' => 'pre_item_post',
+            'page' => 'item',
+            'action' => 'item_add',
+        ),
+        'item_edit' => array(
+            'name' => __('Edit an item', advcaptcha_plugin()),
+            'hook_show' => null,
+            'hook_show_mtx' => null,
+            'hook_post' => 'pre_item_post',
+            'page' => 'item',
+            'action' => 'item_edit',
+        ),
+        'comment' => array(
+            'name' => __('Add a comment', advcaptcha_plugin()),
+            'hook_show' => null,
+            'hook_show_mtx' => null,
+            'hook_post' => 'init_item',
+            'page' => 'item',
+            'action' => null,
+        )
     );
+}
+
+/* Get list of enabled positions. */
+function advcaptcha_positions_enabled() {
+    $positions = advcaptcha_positions();
+    foreach($positions as $id => $pos) {
+        $type = advcaptcha_pref('show_'.$id);
+        if(!$type) {
+            unset($positions[$id]);
+        } else {
+            $positions[$id]['type'] = $type;
+        }
+    }
+
+    return $positions;
 }
 
 /* Get preferences from View. */
