@@ -13,23 +13,29 @@ class AdvancedCaptcha {
         $this->positionsEnabled = advcaptcha_positions_enabled();
         $this->setForm();
 
+        osc_add_hook('header', array(&$this, 'header'));
         osc_add_hook('before_html', array(&$this, 'prepareCaptcha'));
         osc_add_hook('ajax_advcaptcha_refresh', array(&$this, 'refreshCaptcha'));
     }
 
+    function header() {
+        $key = advcaptcha_pref('recaptcha_site_key');
+        ?>
+        <script src="https://www.google.com/recaptcha/api.js?render=<?php echo osc_esc_html($key); ?>"></script>
+        <?php
+    }
+
     function setForm() {
         foreach($this->positionsEnabled as $id => $pos) {
-            $hook = $pos['hook_show'];
-            $hook_mtx = $pos['hook_show_mtx'];
-
-            osc_add_hook($hook, array(&$this, 'showForm'));
-
-            // if theme is Matrix, use $hook_mtx
+            osc_add_hook($pos['hook_show'], array(&$this, 'showForm'));
         }
     }
 
     function showForm() {
-        include ADVCAPTCHA_PATH.'views/web/form.php';
+        $captcha = Session::newInstance()->_getForm(advcaptcha_session_key());
+        if(in_array($captcha['type'], advcaptcha_types())) {
+            include ADVCAPTCHA_PATH.'views/web/'.$captcha['type'].'.php';
+        }
     }
 
     function prepareCaptcha() {

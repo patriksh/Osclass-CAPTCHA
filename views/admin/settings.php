@@ -15,6 +15,19 @@ $positions = advcaptcha_positions();
 <div class="wm wm-settings uk-container uk-container-expand uk-padding">
     <h2 class="uk-heading-divider"><?php _e('Settings', advcaptcha_plugin()); ?></h2>
     <form action="<?php echo osc_route_admin_url('advancedcaptcha-post'); ?>" method="POST">
+        <fieldset class="uk-fieldset">
+            <legend class="uk-legend"><?php _e('reCAPTCHA site key', advcaptcha_plugin()); ?>&nbsp;<a class="uk-label uk-label-primary" href="https://www.google.com/recaptcha/admin/create"><?php _e('Generate here', advcaptcha_plugin()); ?></a></legend>
+            <div class="uk-margin">
+                <input name="recaptcha_site_key" class="uk-input" type="text" placeholder="<?php _e('Site key for reCAPTCHA v3.', advcaptcha_plugin()); ?>" value="<?php echo $pref['recaptcha_site_key']; ?>" required>
+            </div>
+        </fieldset>
+        <fieldset class="uk-fieldset">
+            <legend class="uk-legend"><?php _e('reCAPTCHA secret key', advcaptcha_plugin()); ?>&nbsp;<a class="uk-label uk-label-primary" href="https://www.google.com/recaptcha/admin/create"><?php _e('Generate here', advcaptcha_plugin()); ?></a></legend>
+            <div class="uk-margin">
+                <input name="recaptcha_secret_key" class="uk-input" type="text" placeholder="<?php _e('Secret key for reCAPTCHA v3.', advcaptcha_plugin()); ?>" value="<?php echo $pref['recaptcha_secret_key']; ?>" required>
+            </div>
+        </fieldset>
+        <hr>
         <?php foreach($positions as $id => $pos) { ?>
             <fieldset class="uk-fieldset">
                 <legend class="uk-legend"><?php printf(__('Show at "%s" form', advcaptcha_plugin()), $pos['name']); ?><!-- &nbsp;<span class="uk-label uk-label-warning"><?php _e('eBay only', advcaptcha_plugin()); ?> --></span></legend>

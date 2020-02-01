@@ -27,6 +27,9 @@ function advcaptcha_install() {
     foreach(advcaptcha_positions() as $id => $pos) {
         osc_set_preference('show_'.$id, '', 'plugin_advcaptcha');
     }
+    
+    osc_set_preference('recaptcha_site_key', '', 'plugin_advcaptcha');
+    osc_set_preference('recaptcha_secret_key', '', 'plugin_advcaptcha');
 }
 osc_register_plugin(osc_plugin_path(__FILE__), 'advcaptcha_install');
 

@@ -72,7 +72,6 @@ function advcaptcha_positions() {
         'item_add' => array(
             'name' => __('Add an item', advcaptcha_plugin()),
             'hook_show' => 'advcaptcha_hook_item',
-            'hook_show_mtx' => null,
             'hook_post' => 'pre_item_post',
             'page' => 'item',
             'action' => 'item_add',
@@ -80,7 +79,6 @@ function advcaptcha_positions() {
         'item_edit' => array(
             'name' => __('Edit an item', advcaptcha_plugin()),
             'hook_show' => 'advcaptcha_hook_item',
-            'hook_show_mtx' => null,
             'hook_post' => 'pre_item_post',
             'page' => 'item',
             'action' => 'item_edit',
@@ -88,7 +86,6 @@ function advcaptcha_positions() {
         'comment' => array(
             'name' => __('Add a comment', advcaptcha_plugin()),
             'hook_show' => 'advcaptcha_hook_comment',
-            'hook_show_mtx' => null,
             'hook_post' => 'init_item',
             'page' => 'item',
             'action' => null,
@@ -119,6 +116,10 @@ function advcaptcha_get_preferences() {
 /* Get Web routes. */
 function advcaptcha_web_routes() {
     return array('advancedcaptcha-refresh');
+}
+
+function advcaptcha_types() {
+    return array('google', 'math', 'text', 'question');
 }
 
 /* Get session key. */
@@ -154,8 +155,10 @@ function advcaptcha_generate_text($length = 5) {
 
 /* Generate text captcha image. */
 function advcaptcha_generate_text_img($string, $width = 250, $height = 80, $fontsize = 24) {
-    $captcha = imagecreatetruecolor($width, $height);
+    $font = ADVCAPTCHA_PATH.'assets/web/font.ttf';
     $background = ADVCAPTCHA_PATH.'assets/web/pattern.jpg';
+
+    $captcha = imagecreatetruecolor($width, $height);
     list($bx, $by) = getimagesize($background);
     $bx = ($bx - $width < 0) ? 0 : rand(0, $bx - $width);
     $by = ($by - $height < 0) ? 0 : rand(0, $by - $height);

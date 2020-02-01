@@ -6,5 +6,6 @@
  * More info in license.txt
 */
 
-var_dump(Session::newInstance()->_getForm(advcaptcha_session_key()));
+$captcha = Session::newInstance()->_getForm(advcaptcha_session_key());
 ?>
+let's pretend q&a captcha is here
