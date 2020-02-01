@@ -43,7 +43,7 @@ function advcaptcha_positions() {
     return array(
         'login' => array(
             'name' => __('Login', advcaptcha_plugin()),
-            'hook_show' => null,
+            'hook_show' => 'advcaptcha_hook_login',
             'hook_post' => 'before_validating_login',
             'page' => 'login',
             'action' => null,
@@ -57,7 +57,7 @@ function advcaptcha_positions() {
         ),
         'recover' => array(
             'name' => __('Forgotten password', advcaptcha_plugin()),
-            'hook_show' => null,
+            'hook_show' => 'advcaptcha_hook_recover',
             'hook_post' => null,
             'page' => 'login',
             'action' => 'recover',
@@ -71,7 +71,7 @@ function advcaptcha_positions() {
         ),
         'item_add' => array(
             'name' => __('Add an item', advcaptcha_plugin()),
-            'hook_show' => null,
+            'hook_show' => 'advcaptcha_hook_item',
             'hook_show_mtx' => null,
             'hook_post' => 'pre_item_post',
             'page' => 'item',
@@ -79,7 +79,7 @@ function advcaptcha_positions() {
         ),
         'item_edit' => array(
             'name' => __('Edit an item', advcaptcha_plugin()),
-            'hook_show' => null,
+            'hook_show' => 'advcaptcha_hook_item',
             'hook_show_mtx' => null,
             'hook_post' => 'pre_item_post',
             'page' => 'item',
@@ -87,7 +87,7 @@ function advcaptcha_positions() {
         ),
         'comment' => array(
             'name' => __('Add a comment', advcaptcha_plugin()),
-            'hook_show' => null,
+            'hook_show' => 'advcaptcha_hook_comment',
             'hook_show_mtx' => null,
             'hook_post' => 'init_item',
             'page' => 'item',
@@ -123,11 +123,10 @@ function advcaptcha_web_routes() {
 
 /* Get session key. */
 function advcaptcha_session_key() {
-    $page = Params::getParam('page');
-    $action = (Params::getParam('action') != '') ? Params::getParam('action') : 'action';
-    $key = 'advcaptcha_'.$page.'_'.$action;
+    $page = (Params::getParam('page') != '') ? Params::getParam('page') : null;
+    $action = (Params::getParam('action') != '') ? Params::getParam('action') : null;
 
-    return $key;
+    return 'advcaptcha_'.$page.'_'.$action;
 }
 
 /* Generate math captcha. */
@@ -144,8 +143,8 @@ function advcaptcha_generate_text($length = 5) {
     $chars = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     $max = strlen($chars) - 1;
     $random = '';
-    for ($i = 0; $i <= $length; $i++) {
-        $random .= substr($char, rand(0, $max), 1);
+    for($i = 0; $i <= $length; $i++) {
+        $random .= substr($chars, rand(0, $max), 1);
     }
 
     $image = advcaptcha_generate_text_img($random);

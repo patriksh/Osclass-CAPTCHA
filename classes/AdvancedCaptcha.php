@@ -22,9 +22,7 @@ class AdvancedCaptcha {
             $hook = $pos['hook_show'];
             $hook_mtx = $pos['hook_show_mtx'];
 
-            if($hook != null) {
-                osc_add_hook($hook, array(&$this, 'showForm'));
-            }
+            osc_add_hook($hook, array(&$this, 'showForm'));
 
             // if theme is Matrix, use $hook_mtx
         }
@@ -51,7 +49,7 @@ class AdvancedCaptcha {
             return;
         }
 
-        $key = 'advcaptcha_'.$page.'_'.$action;
+        $key = advcaptcha_session_key();
         Session::newInstance()->_setForm($key, array('type' => $position['type'], 'problem' => $this->prepareProblem($position['type'])));
         Session::newInstance()->_keepForm($key);
     }
@@ -76,10 +74,6 @@ class AdvancedCaptcha {
         }
 
         return $problem;
-    }
-
-    function prepareAjaxCaptcha() {
-
     }
 
     function refreshCaptcha() {
@@ -147,4 +141,7 @@ class AdvancedCaptchaAdmin {
         include(ADVCAPTCHA_PATH.'views/admin/header.php');
     }
 }
-$AdvancedCaptchaAdmin = new AdvancedCaptchaAdmin();
+
+if(OC_ADMIN) {
+    $AdvancedCaptchaAdmin = new AdvancedCaptchaAdmin();
+}
