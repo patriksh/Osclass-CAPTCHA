@@ -36,7 +36,11 @@ class AdvancedCaptchaController_Admin extends AdminSecBaseModel {
             case 'advancedcaptcha-post':
                 osc_csrf_check();
                 foreach($this->settings as $setting => $value) {
-                    osc_set_preference($setting, Params::getParam($setting), 'plugin_advcaptcha');
+                    if($settings == 'questions') {
+
+                    } else {
+                        osc_set_preference($setting, Params::getParam($setting), 'plugin_advcaptcha');
+                    }
                 }
 
                 osc_add_flash_ok_message(__('Settings updated.', advcaptcha_plugin()), 'admin');
