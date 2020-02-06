@@ -114,8 +114,8 @@ class AdvancedCaptchaAdmin {
 
         osc_add_hook('admin_header', array(&$this, 'adminHeader'));
 
-        osc_register_script('uikit', advcaptcha_url('assets/admin/js/uikit.min.js'));
-        osc_register_script('advcaptcha-admin', advcaptcha_url('assets/admin/js/main.min.js'));
+        osc_register_script('uikit', advcaptcha_url('assets/admin/js/uikit.min.js'), array('jquery'));
+        osc_register_script('advcaptcha-admin', advcaptcha_url('assets/admin/js/main.min.js'), array('uikit'));
         osc_enqueue_script('uikit');
         osc_enqueue_script('advcaptcha-admin');
 

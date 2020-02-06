@@ -36,8 +36,11 @@ class AdvancedCaptchaController_Admin extends AdminSecBaseModel {
             case 'advancedcaptcha-post':
                 osc_csrf_check();
                 foreach($this->settings as $setting => $value) {
-                    if($settings == 'questions') {
-
+                    if($setting == 'questions') {
+                        $qs = array_filter(Params::getParam('qna_q'), 'strlen');
+                        $as = array_filter(Params::getParam('qna_a'), 'strlen');
+                        $questions = serialize(array_map(null, $qs, $as));
+                        osc_set_preference('questions', $questions, 'plugin_advcaptcha');
                     } else {
                         osc_set_preference($setting, Params::getParam($setting), 'plugin_advcaptcha');
                     }
