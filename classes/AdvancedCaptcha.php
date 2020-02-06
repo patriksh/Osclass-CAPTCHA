@@ -71,8 +71,8 @@ class AdvancedCaptcha {
             case 'text':
                 $problem = advcaptcha_generate_text();
             break;
-            case 'question':
-                $problem = null;
+            case 'qna':
+                $problem = advcaptcha_generate_qna();
             break;
             default:
                 $problem = null;

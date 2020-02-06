@@ -119,7 +119,7 @@ function advcaptcha_web_routes() {
 }
 
 function advcaptcha_types() {
-    return array('google', 'math', 'text', 'question');
+    return array('google', 'math', 'text', 'qna');
 }
 
 /* Get session key. */
@@ -137,6 +137,16 @@ function advcaptcha_generate_math($max = 10) {
     $ans = $num1 + $num2;
 
     return array('num1' => $num1, 'num2' => $num2, 'ans' => $ans, 'type' => 'math');
+}
+
+/* Generate Q&A captcha. */
+function advcaptcha_generate_qna() {
+    $questions = unserialize(advcaptcha_pref('questions'));
+    shuffle($questions);
+    $question = $questions[0];
+    unset($questions);
+
+    return array('ans' => $question[1], 'question' => $question[0], 'type' => 'qna');
 }
 
 /* Generate text captcha. */

@@ -78,7 +78,7 @@ $qna_key = 0;
                         <option value="google" <?php if($pref['show_'.$id] == 'google') { echo 'selected'; } ?>><?php _e('reCAPTCHA v3', advcaptcha_plugin()); ?></option>
                         <option value="math" <?php if($pref['show_'.$id] == 'math') { echo 'selected'; } ?>><?php _e('Math', advcaptcha_plugin()); ?></option>
                         <option value="text" <?php if($pref['show_'.$id] == 'text') { echo 'selected'; } ?>><?php _e('Text', advcaptcha_plugin()); ?></option>
-                        <option value="question" <?php if($pref['show_'.$id] == 'question') { echo 'selected'; } ?>><?php _e('Q&A', advcaptcha_plugin()); ?></option>
+                        <option value="qna" <?php if($pref['show_'.$id] == 'qna') { echo 'selected'; } ?>><?php _e('Q&A', advcaptcha_plugin()); ?></option>
                     </select>
                 </div>
             </fieldset>
