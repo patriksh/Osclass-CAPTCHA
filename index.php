@@ -30,6 +30,7 @@ function advcaptcha_install() {
 
     osc_set_preference('recaptcha_site_key', '', 'plugin_advcaptcha');
     osc_set_preference('recaptcha_secret_key', '', 'plugin_advcaptcha');
+    osc_set_preference('recaptcha_threshold', '0.5', 'plugin_advcaptcha');
 
     osc_set_preference('questions', serialize(array(array('What is our planet called', 'Earth'))), 'plugin_advcaptcha');
 }

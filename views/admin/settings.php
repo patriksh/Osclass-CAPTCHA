@@ -20,15 +20,21 @@ $qna_key = 0;
     <h2 class="uk-heading-divider"><?php _e('Settings', advcaptcha_plugin()); ?></h2>
     <form action="<?php echo osc_route_admin_url('advancedcaptcha-post'); ?>" method="POST">
         <fieldset class="uk-fieldset">
-            <legend class="uk-legend"><?php _e('reCAPTCHA site key', advcaptcha_plugin()); ?>&nbsp;<a class="uk-label uk-label-primary" href="https://www.google.com/recaptcha/admin/create"><?php _e('Generate here', advcaptcha_plugin()); ?></a></legend>
+            <legend class="uk-legend"><?php _e('reCAPTCHA V3 site key', advcaptcha_plugin()); ?>&nbsp;<a class="uk-label uk-label-primary" href="https://www.google.com/recaptcha/admin/create" target="_blank"><?php _e('Generate here', advcaptcha_plugin()); ?></a></legend>
             <div class="uk-margin">
                 <input name="recaptcha_site_key" class="uk-input" type="text" placeholder="<?php _e('Site key for reCAPTCHA v3.', advcaptcha_plugin()); ?>" value="<?php echo $pref['recaptcha_site_key']; ?>">
             </div>
         </fieldset>
         <fieldset class="uk-fieldset">
-            <legend class="uk-legend"><?php _e('reCAPTCHA secret key', advcaptcha_plugin()); ?>&nbsp;<a class="uk-label uk-label-primary" href="https://www.google.com/recaptcha/admin/create"><?php _e('Generate here', advcaptcha_plugin()); ?></a></legend>
+            <legend class="uk-legend"><?php _e('reCAPTCHA V3 secret key', advcaptcha_plugin()); ?>&nbsp;<a class="uk-label uk-label-primary" href="https://www.google.com/recaptcha/admin/create" target="_blank"><?php _e('Generate here', advcaptcha_plugin()); ?></a></legend>
             <div class="uk-margin">
                 <input name="recaptcha_secret_key" class="uk-input" type="text" placeholder="<?php _e('Secret key for reCAPTCHA v3.', advcaptcha_plugin()); ?>" value="<?php echo $pref['recaptcha_secret_key']; ?>">
+            </div>
+        </fieldset>
+        <fieldset class="uk-fieldset">
+            <legend class="uk-legend"><?php _e('reCAPTCHA V3 score threshold', advcaptcha_plugin()); ?>&nbsp;<a class="uk-label uk-label-primary" href="https://developers.google.com/recaptcha/docs/v3#interpreting_the_score" target="_blank"><?php _e('More info here', advcaptcha_plugin()); ?></a></legend>
+            <div class="uk-margin">
+                <input name="recaptcha_threshold" class="uk-input" type="number" placeholder="<?php _e('Score threshold for reCAPTCHA.', advcaptcha_plugin()); ?>" value="<?php echo $pref['recaptcha_threshold']; ?>" step="0.1" min="0.1" max="1">
             </div>
         </fieldset>
         <fieldset class="uk-fieldset qna-append">

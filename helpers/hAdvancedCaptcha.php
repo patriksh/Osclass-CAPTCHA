@@ -47,6 +47,7 @@ function advcaptcha_positions() {
             'hook_post' => 'before_validating_login',
             'page' => 'login',
             'action' => null,
+            'redirect' => osc_user_login_url()
         ),
         'register' => array(
             'name' => __('Register', advcaptcha_plugin()),
@@ -54,13 +55,15 @@ function advcaptcha_positions() {
             'hook_post' => 'before_user_register',
             'page' => 'register',
             'action' => 'register',
+            'redirect' => osc_user_register_url()
         ),
         'recover' => array(
             'name' => __('Forgotten password', advcaptcha_plugin()),
             'hook_show' => 'advcaptcha_hook_recover',
-            'hook_post' => null,
+            'hook_post' => 'init_login',
             'page' => 'login',
             'action' => 'recover',
+            'redirect' => osc_recover_user_password_url()
         ),
         'contact' => array(
             'name' => __('Contact', advcaptcha_plugin()),
@@ -68,6 +71,7 @@ function advcaptcha_positions() {
             'hook_post' => 'init_contact',
             'page' => 'contact',
             'action' => null,
+            'redirect' => osc_contact_url()
         ),
         'item_add' => array(
             'name' => __('Add an item', advcaptcha_plugin()),
@@ -75,6 +79,7 @@ function advcaptcha_positions() {
             'hook_post' => 'pre_item_post',
             'page' => 'item',
             'action' => 'item_add',
+            'redirect' => osc_item_post_url()
         ),
         'item_edit' => array(
             'name' => __('Edit an item', advcaptcha_plugin()),
@@ -82,13 +87,15 @@ function advcaptcha_positions() {
             'hook_post' => 'pre_item_post',
             'page' => 'item',
             'action' => 'item_edit',
+            'redirect' => null
         ),
         'comment' => array(
             'name' => __('Add a comment', advcaptcha_plugin()),
             'hook_show' => 'advcaptcha_hook_comment',
-            'hook_post' => 'init_item',
+            'hook_post' => 'pre_item_add_comment_post',
             'page' => 'item',
             'action' => null,
+            'redirect' => null
         )
     );
 }
@@ -130,6 +137,17 @@ function advcaptcha_session_key() {
     return 'advcaptcha_'.$page.'_'.$action;
 }
 
+/* Verify reCAPTCHA V3. */
+function advcaptcha_verify_google($response) {
+    $url = 'https://www.google.com/recaptcha/api/siteverify';
+    $data = array('secret' => advcaptcha_pref('recaptcha_secret_key'), 'response' => $response);
+
+    $recaptcha = osc_file_get_contents($url, $data);
+    $recaptcha = json_decode($recaptcha);
+
+    return ($recaptcha->score >= advcaptcha_pref('recaptcha_threshold'));
+}
+
 /* Generate math captcha. */
 function advcaptcha_generate_math($max = 10) {
     $num1 = rand(1, $max);
@@ -137,6 +155,11 @@ function advcaptcha_generate_math($max = 10) {
     $ans = $num1 + $num2;
 
     return array('num1' => $num1, 'num2' => $num2, 'ans' => $ans, 'type' => 'math');
+}
+
+/* Verify math captcha. */
+function advcaptcha_verify_math($problem, $answer) {
+    return ((int) $answer === $problem['ans']);
 }
 
 /* Generate Q&A captcha. */
@@ -147,6 +170,11 @@ function advcaptcha_generate_qna() {
     unset($questions);
 
     return array('ans' => $question[1], 'question' => $question[0], 'type' => 'qna');
+}
+
+/* Verify Q&A captcha. */
+function advcaptcha_verify_qna($problem, $answer) {
+    return (trim(strtolower($answer)) == trim(strtolower($problem['ans'])));
 }
 
 /* Generate text captcha. */
@@ -161,6 +189,11 @@ function advcaptcha_generate_text($length = 5) {
     $image = advcaptcha_generate_text_img($random);
 
     return array('ans' => $random, 'img' => $image, 'type' => 'text');
+}
+
+/* Verify text captcha. */
+function advcaptcha_verify_text($problem, $answer) {
+    return (trim(strtolower($answer)) == trim(strtolower($problem['ans'])));
 }
 
 /* Generate text captcha image. */

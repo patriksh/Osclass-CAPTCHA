@@ -12,6 +12,7 @@ class AdvancedCaptcha {
     function __construct() {
         $this->positionsEnabled = advcaptcha_positions_enabled();
         $this->setForm();
+        $this->setPost();
 
         osc_add_hook('header', array(&$this, 'header'));
         osc_add_hook('before_html', array(&$this, 'prepareCaptcha'));
@@ -20,14 +21,20 @@ class AdvancedCaptcha {
 
     function header() {
         $key = advcaptcha_pref('recaptcha_site_key');
-        ?>
-        <script src="https://www.google.com/recaptcha/api.js?render=<?php echo osc_esc_html($key); ?>"></script>
-        <?php
+        if($key != '') { ?>
+            <script src="https://www.google.com/recaptcha/api.js?render=<?php echo osc_esc_html($key); ?>"></script>
+        <?php }
     }
 
     function setForm() {
         foreach($this->positionsEnabled as $id => $pos) {
             osc_add_hook($pos['hook_show'], array(&$this, 'showForm'));
+        }
+    }
+
+    function setPost() {
+        foreach($this->positionsEnabled as $id => $pos) {
+            osc_add_hook($pos['hook_post'], array(&$this, 'verifyCaptcha'));
         }
     }
 
@@ -80,6 +87,74 @@ class AdvancedCaptcha {
         }
 
         return $problem;
+    }
+
+    function verifyProblem($captcha) {
+        $type = $captcha['type'];
+        $problem = $captcha['problem'];
+        $answer = osc_esc_html(Params::getParam('advcaptcha'));
+
+        switch($type) {
+            case 'google':
+                $solved = advcaptcha_verify_google(osc_esc_html(Params::getParam('response')));
+            break;
+            case 'math':
+                $solved = advcaptcha_verify_math($problem, $answer);
+            break;
+            case 'text':
+                $solved = advcaptcha_verify_text($problem, $answer);
+            break;
+            case 'qna':
+                $solved = advcaptcha_verify_qna($problem, $answer);
+            break;
+            default:
+                $solved = false;
+            break;
+        }
+    }
+
+    function verifyCaptcha() {
+        $key = osc_esc_html(Params::getParam('advcaptcha_session'));
+        $captcha = Session::newInstance()->_getForm($key);
+        if($captcha == '') {
+            return;
+        }
+
+        $solved = $this->verifyProblem($captcha);
+
+        if(!$solved) {
+            $captcha_info = $this->positionsEnabled[$captcha['type']];
+            $redirect = $captcha_info['redirect'];
+
+            switch($captcha_info['hook_show']) {
+                case 'before_user_register': // Register post.
+                    Session::newInstance()->_setForm('user_s_name', trim(Params::getParam('s_name')));
+                    Session::newInstance()->_setForm('user_s_email', Params::getParam('s_email'));
+                    Session::newInstance()->_setForm('user_s_username', osc_sanitize_username(Params::getParam('s_username')));
+                    $phone = (Params::getParam('s_phone_mobile')) ? trim(Params::getParam('s_phone_mobile')) : trim(Params::getParam('s_phone_land'));
+                    Session::newInstance()->_setForm('user_s_phone', $phone);
+                break;
+                case 'init_login': // Recover password post.
+                    if(Params::getParam('action') != 'recover_post') { return; }
+                break;
+                case 'init_contact': // Contact form post.
+                    if(Params::getParam('action') != 'contact_post') { return; }
+                    Session::newInstance()->_setForm('yourName', Params::getParam('yourName'));
+                    Session::newInstance()->_setForm('yourEmail', Params::getParam('yourEmail'));
+                    Session::newInstance()->_setForm('subject', Params::getParam('subject'));
+                    Session::newInstance()->_setForm('message_body', Params::getParam('message'));
+                break;
+                case 'item_edit': // Item edit post.
+                    $redirect = osc_item_edit_url(Params::getParam('secret'), Params::getParam('id'));
+                break;
+                case 'pre_item_add_comment_post': // Add comment post.
+                    $redirect = osc_base_url(1).'?page=item&id='.Params::getParam('id');
+                break;
+            }
+
+            osc_add_flash_error_message(__('CAPTCHA not solved correctly. Please try again.', advcaptcha_plugin()));
+            osc_redirect_to($redirect);
+        }
     }
 
     function refreshCaptcha() {
