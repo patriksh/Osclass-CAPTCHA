@@ -55,7 +55,7 @@ function advcaptcha_positions() {
             'hook_post' => 'before_user_register',
             'page' => 'register',
             'action' => 'register',
-            'redirect' => osc_user_register_url()
+            'redirect' => osc_register_account_url()
         ),
         'recover' => array(
             'name' => __('Forgotten password', advcaptcha_plugin()),
@@ -142,10 +142,11 @@ function advcaptcha_verify_google($response) {
     $url = 'https://www.google.com/recaptcha/api/siteverify';
     $data = array('secret' => advcaptcha_pref('recaptcha_secret_key'), 'response' => $response);
 
+
     $recaptcha = osc_file_get_contents($url, $data);
     $recaptcha = json_decode($recaptcha);
 
-    return ($recaptcha->score >= advcaptcha_pref('recaptcha_threshold'));
+    return ($recaptcha->score >= (float) advcaptcha_pref('recaptcha_threshold'));
 }
 
 /* Generate math captcha. */

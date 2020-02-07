@@ -8,7 +8,7 @@
 $key = advcaptcha_pref('recaptcha_site_key');
 ?>
 <input type="hidden" name="recaptcha_response" id="recaptcha_response">
-<input type="hidden" name="advcaptcha_session" id="<?php echo advcaptcha_session_key(); ?>">
+<input type="hidden" name="advcaptcha_session" value="<?php echo advcaptcha_session_key(); ?>">
 <script>
     grecaptcha.ready(function() {
         grecaptcha.execute('<?php echo osc_esc_js($key); ?>', { action: '<?php echo osc_esc_js(advcaptcha_session_key()); ?>_form' }).then(function(token) {

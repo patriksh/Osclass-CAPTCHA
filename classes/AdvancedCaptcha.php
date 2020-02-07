@@ -21,7 +21,18 @@ class AdvancedCaptcha {
 
     function header() {
         $key = advcaptcha_pref('recaptcha_site_key');
-        if($key != '') { ?>
+        $show = false;
+
+        $page = (Params::getParam('page') != '') ? Params::getParam('page') : null;
+        $action = (Params::getParam('action') != '') ? Params::getParam('action') : null;
+        foreach($this->positionsEnabled as $id => $pos) {
+            if($pos['page'] == $page && $pos['action'] == $action && $pos['type'] == 'google') {
+                $show = true;
+                break;
+            }
+        }
+
+        if($key != '' && $show) { ?>
             <script src="https://www.google.com/recaptcha/api.js?render=<?php echo osc_esc_html($key); ?>"></script>
         <?php }
     }
@@ -63,7 +74,7 @@ class AdvancedCaptcha {
         }
 
         $key = advcaptcha_session_key();
-        Session::newInstance()->_setForm($key, array('type' => $position['type'], 'problem' => $this->prepareProblem($position['type'])));
+        Session::newInstance()->_setForm($key, array('type' => $position['type'], 'name' => $position['id'], 'problem' => $this->prepareProblem($position['type'])));
         Session::newInstance()->_keepForm($key);
     }
 
@@ -96,7 +107,7 @@ class AdvancedCaptcha {
 
         switch($type) {
             case 'google':
-                $solved = advcaptcha_verify_google(osc_esc_html(Params::getParam('response')));
+                $solved = advcaptcha_verify_google(osc_esc_html(Params::getParam('recaptcha_response')));
             break;
             case 'math':
                 $solved = advcaptcha_verify_math($problem, $answer);
@@ -111,6 +122,8 @@ class AdvancedCaptcha {
                 $solved = false;
             break;
         }
+
+        return $solved;
     }
 
     function verifyCaptcha() {
@@ -123,7 +136,7 @@ class AdvancedCaptcha {
         $solved = $this->verifyProblem($captcha);
 
         if(!$solved) {
-            $captcha_info = $this->positionsEnabled[$captcha['type']];
+            $captcha_info = $this->positionsEnabled[$captcha['name']];
             $redirect = $captcha_info['redirect'];
 
             switch($captcha_info['hook_show']) {

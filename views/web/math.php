@@ -8,7 +8,7 @@
 
 $captcha = Session::newInstance()->_getForm(advcaptcha_session_key());
 ?>
-<input type="hidden" name="advcaptcha_session" id="<?php echo advcaptcha_session_key(); ?>">
+<input type="hidden" name="advcaptcha_session" value="<?php echo advcaptcha_session_key(); ?>">
 <div class="mtx-form-group">
     <label for="advcaptcha"><?php _e('What\'s', advcaptcha_plugin()); ?> <span><?php echo $captcha['problem']['num1']; ?></span> + <span><?php echo $captcha['problem']['num2']; ?></span>?</label>
     <input type="text" name="advcaptcha" id="advcaptcha" placeholder="<?php _e('Fill me...', advcaptcha_plugin()); ?>">

@@ -38,7 +38,7 @@ $qna_key = 0;
             </div>
         </fieldset>
         <fieldset class="uk-fieldset qna-append">
-            <legend class="uk-legend"><?php _e('Q&A CAPTCHA questions', advcaptcha_plugin()); ?>&nbsp;<a class="uk-label uk-label-primary" href="https://www.google.com/recaptcha/admin/create"><?php _e('Generate here', advcaptcha_plugin()); ?></a></legend>
+            <legend class="uk-legend"><?php _e('Q&A CAPTCHA questions', advcaptcha_plugin()); ?></legend>
             <?php if($pref['questions'] == '') { ?>
                 <div class="uk-margin uk-grid-small" uk-grid>
                     <div class="uk-width-2-5@s">

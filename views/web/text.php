@@ -8,7 +8,7 @@
 
 $captcha = Session::newInstance()->_getForm(advcaptcha_session_key());
 ?>
-<input type="hidden" name="advcaptcha_session" id="<?php echo advcaptcha_session_key(); ?>">
+<input type="hidden" name="advcaptcha_session" value="<?php echo advcaptcha_session_key(); ?>">
 <div class="mtx-form-group">
     <img src="<?php echo $captcha['problem']['img']; ?>">
 </div>
