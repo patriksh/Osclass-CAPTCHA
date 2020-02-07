@@ -127,11 +127,11 @@ class AdvancedCaptcha {
     }
 
     function verifyCaptcha() {
-        if(filter_input(INPUT_SERVER, 'REQUEST_METHOD') !== 'POST') {
+        $key = osc_esc_html(Params::getParam('advcaptcha_session'));
+        if(filter_input(INPUT_SERVER, 'REQUEST_METHOD') !== 'POST' || $key == '') {
             return;
         }
 
-        $key = osc_esc_html(Params::getParam('advcaptcha_session'));
         $captcha = Session::newInstance()->_getForm($key);
         if($captcha == '') {
             return;
