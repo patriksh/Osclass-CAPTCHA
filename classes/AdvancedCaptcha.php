@@ -127,6 +127,10 @@ class AdvancedCaptcha {
     }
 
     function verifyCaptcha() {
+        if(filter_input(INPUT_SERVER, 'REQUEST_METHOD') !== 'POST') {
+            return;
+        }
+
         $key = osc_esc_html(Params::getParam('advcaptcha_session'));
         $captcha = Session::newInstance()->_getForm($key);
         if($captcha == '') {
@@ -139,7 +143,7 @@ class AdvancedCaptcha {
             $captcha_info = $this->positionsEnabled[$captcha['name']];
             $redirect = $captcha_info['redirect'];
 
-            switch($captcha_info['hook_show']) {
+            switch($captcha_info['hook_post']) {
                 case 'before_user_register': // Register post.
                     Session::newInstance()->_setForm('user_s_name', trim(Params::getParam('s_name')));
                     Session::newInstance()->_setForm('user_s_email', Params::getParam('s_email'));
