@@ -10,11 +10,10 @@
 Plugin Name: Advanced CAPTCHA
 Plugin URI: https://www.zagorski-oglasnik.com/
 Description: Your number one solution for CAPTCHA straight from WEBmods workshop. reCAPTCHA V3, math, text and Q&A CAPTCHA for login, register, contact and add comment pages.
-Version: 1.0.0
+Version: 0.0.2
 Author: WEBmods by Zagorski Oglasnik jdoo
 Author URI: https://www.zagorski-oglasnik.com/
-Short Name: zo_advancedcaptcha
-Plugin update URI: advcaptcha
+Plugin update URI: http://loveosclass.com/update/advcaptcha/free
 */
 
 define('ADVCAPTCHA_PATH', dirname(__FILE__).'/');
