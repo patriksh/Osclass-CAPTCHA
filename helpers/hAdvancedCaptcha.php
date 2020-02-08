@@ -63,7 +63,8 @@ function advcaptcha_positions() {
             'hook_post' => 'init_login',
             'page' => 'login',
             'action' => 'recover',
-            'redirect' => osc_recover_user_password_url()
+            'redirect' => osc_recover_user_password_url(),
+            'file' => 'user-recover.php'
         ),
         'contact' => array(
             'name' => __('Contact', advcaptcha_plugin()),
@@ -79,7 +80,8 @@ function advcaptcha_positions() {
             'hook_post' => 'pre_item_post',
             'page' => 'item',
             'action' => 'item_add',
-            'redirect' => osc_item_post_url()
+            'redirect' => osc_item_post_url(),
+            'file' => 'item-post.php'
         ),
         'item_edit' => array(
             'name' => __('Edit an item', advcaptcha_plugin()),
@@ -87,7 +89,8 @@ function advcaptcha_positions() {
             'hook_post' => 'pre_item_post',
             'page' => 'item',
             'action' => 'item_edit',
-            'redirect' => null
+            'redirect' => null,
+            'file' => 'item-post.php'
         ),
         'comment' => array(
             'name' => __('Add a comment', advcaptcha_plugin()),
@@ -95,7 +98,8 @@ function advcaptcha_positions() {
             'hook_post' => 'pre_item_add_comment_post',
             'page' => 'item',
             'action' => null,
-            'redirect' => null
+            'redirect' => null,
+            'file' => 'item.php/item-sidebar.php'
         )
     );
 }

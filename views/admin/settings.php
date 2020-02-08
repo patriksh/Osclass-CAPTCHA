@@ -15,7 +15,6 @@ $placeholder_q = __('Question', advcaptcha_plugin());
 $placeholder_a = __('Answer', advcaptcha_plugin());
 $qna_key = 0;
 ?>
-<script src="https://taimurian.github.io/fa-icons-for-uikit3/js/uikit-icons.min.js"></script>
 <div class="wm wm-settings uk-container uk-container-expand uk-padding">
     <h2 class="uk-heading-divider"><?php _e('Settings', advcaptcha_plugin()); ?></h2>
     <form action="<?php echo osc_route_admin_url('advancedcaptcha-post'); ?>" method="POST">
@@ -32,7 +31,7 @@ $qna_key = 0;
             </div>
         </fieldset>
         <fieldset class="uk-fieldset">
-            <legend class="uk-legend"><?php _e('reCAPTCHA V3 score threshold', advcaptcha_plugin()); ?>&nbsp;<a class="uk-label uk-label-primary" href="https://developers.google.com/recaptcha/docs/v3#interpreting_the_score" target="_blank"><?php _e('More info here', advcaptcha_plugin()); ?></a></legend>
+            <legend class="uk-legend"><?php _e('reCAPTCHA V3 score threshold', advcaptcha_plugin()); ?>&nbsp;<a class="uk-label uk-label-primary" uk-toggle="target: #recaptcha-threshold" ><?php _e('More info', advcaptcha_plugin()); ?></a></legend>
             <div class="uk-margin">
                 <input name="recaptcha_threshold" class="uk-input" type="number" placeholder="<?php _e('Score threshold for reCAPTCHA.', advcaptcha_plugin()); ?>" value="<?php echo $pref['recaptcha_threshold']; ?>" step="0.1" min="0.1" max="1">
             </div>
@@ -76,8 +75,14 @@ $qna_key = 0;
         </fieldset>
         <hr>
         <?php foreach($positions as $id => $pos) { ?>
+            <?php
+            $theme_mod = '';
+            if(array_key_exists('file', $pos)) {
+                $theme_mod = '&nbsp;<a class="uk-label uk-label-warning theme-mod-toggle" uk-toggle="target: #theme-mod" data-hook="'.$pos['hook_show'].'" data-file="'.$pos['file'].'">'.__('Theme mod required', advcaptcha_plugin()).'</a>';
+            }
+            ?>
             <fieldset class="uk-fieldset">
-                <legend class="uk-legend"><?php printf(__('"%s" form', advcaptcha_plugin()), $pos['name']); ?><!-- &nbsp;<span class="uk-label uk-label-warning"><?php _e('eBay only', advcaptcha_plugin()); ?> --></span></legend>
+                <legend class="uk-legend"><?php printf(__('"%s" form', advcaptcha_plugin()), $pos['name']); ?><?php echo $theme_mod; ?></legend>
                 <div class="uk-margin">
                     <select class="uk-select" name="show_<?php echo $id; ?>">
                         <option value=""><?php _e('None', advcaptcha_plugin()); ?></option>
@@ -96,8 +101,36 @@ $qna_key = 0;
     </form>
 </div>
 
+<div id="recaptcha-threshold" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <h2 class="uk-modal-title"><?php _e('reCAPTCHA V3 score threshold', advcaptcha_plugin()); ?></h2>
+        <p><?php _e('reCAPTCHA v3 returns a score (1.0 is very likely a good interaction, 0.0 is very likely a bot). Based on the score, you can take variable action in the context of your site.', advcaptcha_plugin()); ?></p>
+        <p><?php _e('reCAPTCHA learns by seeing real traffic on your site. For this reason, scores in a staging environment or soon after implementing may differ from production. As reCAPTCHA v3 doesn\'t ever interrupt the user flow, you can first run reCAPTCHA without taking action and then decide on thresholds by looking at your traffic in the admin console. By default, you can use a threshold of 0.5.', advcaptcha_plugin()); ?></p>
+        <p class="uk-text-right">
+            <button class="uk-button uk-button-default uk-modal-close" type="button"><?php _e('Close', advcaptcha_plugin()); ?></button>
+        </p>
+    </div>
+</div>
+
+<div id="theme-mod" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <h2 class="uk-modal-title"><?php _e('Theme mod', advcaptcha_plugin()); ?></h2>
+        <p><?php _e('Open', advcaptcha_plugin()); ?> <strong class="theme-mod-file"></strong> <?php _e('in <i>oc-content/themes/your_theme</i> and add', advcaptcha_plugin()); ?> <strong class="theme-mod-hook uk-display-block"></strong> <?php _e('where you want the CAPTCHA to be shown. It\'s usually somewhere above the <i>&lt;/form&gt;</i> tag.'); ?></p>
+        <p class="uk-text-right">
+            <button class="uk-button uk-button-default uk-modal-close" type="button"><?php _e('Close', advcaptcha_plugin()); ?></button>
+        </p>
+    </div>
+</div>
+
 <script>
     $(document).ready(function() {
+        $('.theme-mod-toggle').click(function() {
+            var file = $(this).attr('data-file');
+            var hook = "&lt;?php osc_run_hook('"+$(this).attr('data-hook')+"'); ?&gt;";
+            $('#theme-mod .theme-mod-file').html(file);
+            $('#theme-mod .theme-mod-hook').html(hook);
+        });
+
         $('.qna-add').click(function(e) {
             e.preventDefault();
             var key = $('#qna-key').val();

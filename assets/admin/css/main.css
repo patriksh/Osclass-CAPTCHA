@@ -46,6 +46,10 @@
     background: linear-gradient(45deg, #1e87f0 48%, #222 48%);
 }
 
+.uk-label:hover {
+    color: #fff;
+}
+
 /* Typography */
 .wm p {
     margin-block-start:0;
