@@ -218,8 +218,8 @@ class AdvancedCaptchaAdmin {
 
     function addRoutes() {
         // Add backend routes.
-        osc_add_route('advancedcaptcha', 'advancedcaptcha/', 'advancedcaptcha/', ADVCAPTCHA_FOLDER.'views/admin/settings.php');
-        osc_add_route('advancedcaptcha-post', 'advancedcaptcha/save/', 'advancedcaptcha/save/', ADVCAPTCHA_FOLDER.'views/admin/settings.php');
+        osc_add_route('advancedcaptcha', 'advancedcaptcha/', 'advancedcaptcha/', ADVCAPTCHA_FOLDER.'/views/admin/settings.php');
+        osc_add_route('advancedcaptcha-post', 'advancedcaptcha/save/', 'advancedcaptcha/save/', ADVCAPTCHA_FOLDER.'/views/admin/settings.php');
     }
 
     function adminHeader() {

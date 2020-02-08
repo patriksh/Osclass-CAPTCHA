@@ -17,27 +17,26 @@ Short Name: zo_advancedcaptcha
 Plugin update URI: advcaptcha
 */
 
-define('ADVCAPTCHA_PATH', dirname(__FILE__) . '/' );
-define('ADVCAPTCHA_FOLDER', osc_plugin_folder(__FILE__) . '/' );
-define('ADVCAPTCHA_REQUIRED', false);
+define('ADVCAPTCHA_PATH', dirname(__FILE__).'/');
+define('ADVCAPTCHA_FOLDER', 'zo_advancedcaptcha');
+define('ADVCAPTCHA_PREF', 'plugin_advcaptcha');
 
 require_once ADVCAPTCHA_PATH.'oc-load.php';
 
 function advcaptcha_install() {
     foreach(advcaptcha_positions() as $id => $pos) {
-        osc_set_preference('show_'.$id, '', 'plugin_advcaptcha');
+        osc_set_preference('show_'.$id, '', ADVCAPTCHA_PREF);
     }
 
-    osc_set_preference('recaptcha_site_key', '', 'plugin_advcaptcha');
-    osc_set_preference('recaptcha_secret_key', '', 'plugin_advcaptcha');
-    osc_set_preference('recaptcha_threshold', '0.5', 'plugin_advcaptcha');
-
-    osc_set_preference('questions', serialize(array(array('What is our planet called', 'Earth'))), 'plugin_advcaptcha');
+    osc_set_preference('recaptcha_site_key', '', ADVCAPTCHA_PREF);
+    osc_set_preference('recaptcha_secret_key', '', ADVCAPTCHA_PREF);
+    osc_set_preference('recaptcha_threshold', '0.5', ADVCAPTCHA_PREF);
+    osc_set_preference('questions', serialize(array(array('What is our planet called', 'Earth'))), ADVCAPTCHA_PREF);
 }
 osc_register_plugin(osc_plugin_path(__FILE__), 'advcaptcha_install');
 
 function advcaptcha_uninstall() {
-    Preference::newInstance()->delete(array('s_section' => 'plugin_advcaptcha'));
+    Preference::newInstance()->delete(array('s_section' => ADVCAPTCHA_PREF));
 }
 osc_add_hook(osc_plugin_path(__FILE__) . '_uninstall', 'advcaptcha_uninstall');
 

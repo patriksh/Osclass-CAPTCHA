@@ -10,7 +10,7 @@ if(!defined('ABS_PATH')) exit('ABS_PATH is not loaded. Direct access is not allo
 
 /* Get plugin folder. */
 function advcaptcha_plugin() {
-    return 'zo_advancedcaptcha';
+    return ADVCAPTCHA_FOLDER;
 }
 
 /* Get plugin file URL. */
@@ -19,7 +19,7 @@ function advcaptcha_url($file = '') {
 }
 
 function advcaptcha_pref($key) {
-    return osc_get_preference($key, 'plugin_advcaptcha');
+    return osc_get_preference($key, ADVCAPTCHA_PREF);
 }
 
 function advcaptcha_admin_routes() {
@@ -47,7 +47,8 @@ function advcaptcha_positions() {
             'hook_post' => 'before_validating_login',
             'page' => 'login',
             'action' => null,
-            'redirect' => osc_user_login_url()
+            'redirect' => osc_user_login_url(),
+            'file' => 'user-login.php'
         ),
         'register' => array(
             'name' => __('Register', advcaptcha_plugin()),
