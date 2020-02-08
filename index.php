@@ -38,7 +38,7 @@ osc_register_plugin(osc_plugin_path(__FILE__), 'advcaptcha_install');
 function advcaptcha_uninstall() {
     Preference::newInstance()->delete(array('s_section' => ADVCAPTCHA_PREF));
 }
-osc_add_hook(osc_plugin_path(__FILE__) . '_uninstall', 'advcaptcha_uninstall');
+osc_add_hook(osc_plugin_path(__FILE__).'_uninstall', 'advcaptcha_uninstall');
 
 function advcaptcha_configuration() {
     osc_redirect_to(osc_route_admin_url('advancedcaptcha'));
