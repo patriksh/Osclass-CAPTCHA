@@ -15,17 +15,21 @@ class AdvancedCaptcha {
         $this->setPost();
 
         osc_add_hook('init', array(&$this, 'includes'));
-        osc_add_hook('header', array(&$this, 'header'));
         osc_add_hook('before_html', array(&$this, 'prepareCaptcha'));
         osc_add_hook('ajax_advcaptcha_refresh', array(&$this, 'refreshCaptcha'));
     }
 
     function includes() {
         $key = advcaptcha_pref('recaptcha_site_key');
+
         osc_enqueue_style('advcaptcha', advcaptcha_url('assets/web/css/main.css'));
         osc_register_script('advcaptcha', advcaptcha_url('assets/web/js/main.js'), array('jquery'));
         osc_register_script('recaptchav3', 'https://www.google.com/recaptcha/api.js?render='.$key);
         osc_enqueue_script('advcaptcha');
+
+        osc_add_hook('header', function() { ?>
+            <script>var advcaptcha_refresh_url = '<?php echo osc_ajax_hook_url('advcaptcha_refresh'); ?>';</script>
+        <?php });
 
         $page = (Params::getParam('page') != '') ? Params::getParam('page') : null;
         $action = (Params::getParam('action') != '') ? Params::getParam('action') : null;
@@ -176,9 +180,25 @@ class AdvancedCaptcha {
     }
 
     function refreshCaptcha() {
+        $key = osc_esc_html(Params::getParam('key'));
         $type = osc_esc_html(Params::getParam('type'));
-        unset($captcha[array_search('ans', $captcha)]);
+        $q = Params::getParam('q');
 
+        if($key == '' || $type == '') {
+            return;
+        }
+
+        $captcha = Session::newInstance()->_getForm($key);
+        $captcha['problem'] = $this->prepareProblem($type);
+
+        if(isset($captcha['problem']['count']) && $captcha['problem']['count'] > 1) {
+            $captcha['problem'] = advcaptcha_generate_qna_refresh($q);
+        }
+
+        Session::newInstance()->_setForm($key, $captcha);
+        Session::newInstance()->_keepForm($key);
+
+        unset($captcha['problem']['ans']);
         echo json_encode($captcha);
     }
 

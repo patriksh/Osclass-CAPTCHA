@@ -179,6 +179,25 @@ function advcaptcha_generate_qna() {
     return array('ans' => $question[1], 'question' => $question[0], 'count' => $count, 'type' => 'qna');
 }
 
+/* Generate Q&A captcha and exclude a question. */
+function advcaptcha_generate_qna_refresh($exclude) {
+    $questions = unserialize(advcaptcha_pref('questions'));
+    $count = count($questions);
+
+    // IDEA: This (probably) can be improved. Both from safety and speed sides...
+    foreach($questions as $key => $q) {
+        if($q[0] == $exclude) {
+            unset($questions[$key]);
+        }
+    }
+
+    shuffle($questions);
+    $question = $questions[0];
+    unset($questions);
+
+    return array('ans' => $question[1], 'question' => $question[0], 'count' => $count, 'type' => 'qna');
+}
+
 /* Verify Q&A captcha. */
 function advcaptcha_verify_qna($problem, $answer) {
     return (trim(strtolower($answer)) == trim(strtolower($problem['ans'])));

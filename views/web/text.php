@@ -15,7 +15,7 @@ $captcha = Session::newInstance()->_getForm(advcaptcha_session_key());
 <div class="mtx-form-group">
     <label for="advcaptcha">
         <?php _e('Enter the text from image above', advcaptcha_plugin()); ?>
-        <span class="advcaptcha-refresh" data-type="text"><img src="<?php echo advcaptcha_url('assets/web/img/refresh.svg'); ?>" alt="<?php _e('Refresh', advcaptcha_plugin()); ?>" title="<?php _e('Refresh', advcaptcha_plugin()); ?>"></span>
+        <span class="advcaptcha-refresh" data-type="text" data-session="<?php echo advcaptcha_session_key(); ?>"><img src="<?php echo advcaptcha_url('assets/web/img/refresh.svg'); ?>" alt="<?php _e('Refresh', advcaptcha_plugin()); ?>" title="<?php _e('Refresh', advcaptcha_plugin()); ?>"></span>
     </label>
     <input type="text" name="advcaptcha" id="advcaptcha" placeholder="<?php _e('Fill me...', advcaptcha_plugin()); ?>">
     <span class="input-line bg-accent"></span>
