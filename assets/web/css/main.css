@@ -1,0 +1,8 @@
+.advcaptcha-refresh img {
+    width: .875em;
+    margin-left: .5rem;
+}
+
+.advcaptcha-refresh img:hover {
+    opacity: .7;
+}

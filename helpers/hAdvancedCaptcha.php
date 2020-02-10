@@ -171,11 +171,12 @@ function advcaptcha_verify_math($problem, $answer) {
 /* Generate Q&A captcha. */
 function advcaptcha_generate_qna() {
     $questions = unserialize(advcaptcha_pref('questions'));
+    $count = count($questions);
     shuffle($questions);
     $question = $questions[0];
     unset($questions);
 
-    return array('ans' => $question[1], 'question' => $question[0], 'type' => 'qna');
+    return array('ans' => $question[1], 'question' => $question[0], 'count' => $count, 'type' => 'qna');
 }
 
 /* Verify Q&A captcha. */
@@ -204,8 +205,8 @@ function advcaptcha_verify_text($problem, $answer) {
 
 /* Generate text captcha image. */
 function advcaptcha_generate_text_img($string, $width = 250, $height = 80, $fontsize = 24) {
-    $font = ADVCAPTCHA_PATH.'assets/web/font.ttf';
-    $background = ADVCAPTCHA_PATH.'assets/web/pattern.jpg';
+    $font = ADVCAPTCHA_PATH.'assets/web/ttf/font.ttf';
+    $background = ADVCAPTCHA_PATH.'assets/web/img/pattern.jpg';
 
     $captcha = imagecreatetruecolor($width, $height);
     list($bx, $by) = getimagesize($background);

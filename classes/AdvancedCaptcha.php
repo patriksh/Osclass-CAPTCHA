@@ -14,27 +14,28 @@ class AdvancedCaptcha {
         $this->setForm();
         $this->setPost();
 
+        osc_add_hook('init', array(&$this, 'includes'));
         osc_add_hook('header', array(&$this, 'header'));
         osc_add_hook('before_html', array(&$this, 'prepareCaptcha'));
         osc_add_hook('ajax_advcaptcha_refresh', array(&$this, 'refreshCaptcha'));
     }
 
-    function header() {
+    function includes() {
         $key = advcaptcha_pref('recaptcha_site_key');
-        $show = false;
+        osc_enqueue_style('advcaptcha', advcaptcha_url('assets/web/css/main.css'));
+        osc_register_script('advcaptcha', advcaptcha_url('assets/web/js/main.js'), array('jquery'));
+        osc_register_script('recaptchav3', 'https://www.google.com/recaptcha/api.js?render='.$key);
+        osc_enqueue_script('advcaptcha');
 
         $page = (Params::getParam('page') != '') ? Params::getParam('page') : null;
         $action = (Params::getParam('action') != '') ? Params::getParam('action') : null;
+
         foreach($this->positionsEnabled as $id => $pos) {
             if($pos['page'] == $page && $pos['action'] == $action && $pos['type'] == 'google') {
                 $show = true;
-                break;
+                osc_enqueue_script('recaptchav3');
             }
         }
-
-        if($key != '' && $show) { ?>
-            <script src="https://www.google.com/recaptcha/api.js?render=<?php echo osc_esc_html($key); ?>"></script>
-        <?php }
     }
 
     function setForm() {
