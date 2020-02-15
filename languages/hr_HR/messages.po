@@ -1,33 +1,29 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Osclass Advanced CAPTCHA plugin
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-08 23:17+0100\n"
-"PO-Revision-Date: 2020-02-08 23:33+0100\n"
-"Language-Team: \n"
+"Project-Id-Version: Advanced CAPTCHA v100\n"
+"Report-Msgid-Bugs-To: forums.osclasscommunity.com\n"
+"POT-Creation-Date: 2020-02-16 00:38+0100\n"
+"PO-Revision-Date: 2020-02-16 00:40+0100\n"
+"Last-Translator: WEBmods <https://github.com/webmods-croatia>\n"
+"Language-Team: WEBmods <https://github.com/webmods-croatia>\n"
+"Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.4\n"
-"Last-Translator: Osclass Community <osclasscommunity.com>\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
-"Language: hr\n"
 
-#: classes/AdvancedCaptcha.php:172
+#: classes/AdvancedCaptcha.php:177
 msgid "CAPTCHA not solved correctly. Please try again."
 msgstr "CAPTCHA nije riješena točno. Pokušajte ponovo."
 
-#: classes/AdvancedCaptcha.php:233
+#: classes/AdvancedCaptcha.php:254
 msgid "Advanced CAPTCHA"
 msgstr "Napredna CAPTCHA"
 
-#: classes/AdvancedCaptcha.php:234 views/admin/header.php:17
+#: classes/AdvancedCaptcha.php:255 views/admin/header.php:17
 #: views/admin/settings.php:19
 msgid "Settings"
 msgstr "Postavke"
@@ -40,27 +36,27 @@ msgstr "Postavke ažurirane."
 msgid "Login"
 msgstr "Prijava"
 
-#: helpers/hAdvancedCaptcha.php:53
+#: helpers/hAdvancedCaptcha.php:54
 msgid "Register"
 msgstr "Registracija"
 
-#: helpers/hAdvancedCaptcha.php:61
+#: helpers/hAdvancedCaptcha.php:62
 msgid "Forgotten password"
 msgstr "Zaboravljena zaporka"
 
-#: helpers/hAdvancedCaptcha.php:70
+#: helpers/hAdvancedCaptcha.php:71
 msgid "Contact"
 msgstr "Kontakt"
 
-#: helpers/hAdvancedCaptcha.php:78
+#: helpers/hAdvancedCaptcha.php:79
 msgid "Add an item"
 msgstr "Predaja oglasa"
 
-#: helpers/hAdvancedCaptcha.php:87
+#: helpers/hAdvancedCaptcha.php:88
 msgid "Edit an item"
 msgstr "Uređivanje oglasa"
 
-#: helpers/hAdvancedCaptcha.php:96
+#: helpers/hAdvancedCaptcha.php:97
 msgid "Add a comment"
 msgstr "Dodavanje komentara"
 
@@ -176,11 +172,11 @@ msgid ""
 "threshold of 0.5."
 msgstr ""
 "reCAPTCHA uči promatrajući stvaran promet vaše web-stranice. Zbog toga "
-"rezultati prilikom testiranja ili odmah nakon instaliranja plugina mogu "
-"biti drugačiji od rezultata kod stvarnih korisnika. Na početku možete "
-"staviti reCAPTCHA bodovni prag na 0.0 te se nakon razmatranja rezultata "
-"odlučiti za neki realni bodovni prag. Ako se ne želite zamarati s "
-"promatranjem rezultata, preporučeni prag je 0.5."
+"rezultati prilikom testiranja ili odmah nakon instaliranja plugina mogu biti "
+"drugačiji od rezultata kod stvarnih korisnika. Na početku možete staviti "
+"reCAPTCHA bodovni prag na 0.0 te se nakon razmatranja rezultata odlučiti za "
+"neki realni bodovni prag. Ako se ne želite zamarati s promatranjem "
+"rezultata, preporučeni prag je 0.5."
 
 #: views/admin/settings.php:110 views/admin/settings.php:120
 msgid "Close"
@@ -203,17 +199,21 @@ msgid ""
 "where you want the CAPTCHA to be shown. It's usually somewhere above the "
 "<i>&lt;/form&gt;</i> tag."
 msgstr ""
-"gdje želite prikazati CAPTCHA. Uglavnom je to negdje iznad <i>&lt;/form&gt;"
-"</i> oznake."
+"gdje želite prikazati CAPTCHA. Uglavnom je to negdje iznad <i>&lt;/form&gt;</"
+"i> oznake."
 
-#: views/web/math.php:13
+#: views/web/math.php:14
 msgid "What's"
 msgstr "Koliko je"
 
-#: views/web/math.php:14 views/web/qna.php:14 views/web/text.php:17
+#: views/web/math.php:15 views/web/qna.php:16 views/web/text.php:18
+msgid "Refresh"
+msgstr "Osvježi"
+
+#: views/web/math.php:17 views/web/qna.php:19 views/web/text.php:20
 msgid "Fill me..."
 msgstr "Ispuni me..."
 
-#: views/web/text.php:16
+#: views/web/text.php:17
 msgid "Enter the text from image above"
 msgstr "Unesite tekst sa slike iznad"
