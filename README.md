@@ -16,23 +16,23 @@ Two options:
 ### THEME MODS
 Login form:
 - a) Open user-login.php in _oc-content/themes/your_theme_ and
-- b) add `<?php osc_run_hook('advcaptcha_hook_login'); ?>` where you want the CAPTCHA to be shown (somewhere above the </form> tag)
+- b) add `<?php osc_run_hook('advcaptcha_hook_login'); ?>` where you want the CAPTCHA to be shown (somewhere above the `</form>` tag)
 
 Forgotten password form:
 - a) Open user-recover.php in _oc-content/themes/your_theme_ and
-- b) add `<?php osc_run_hook('advcaptcha_hook_recover'); ?>` where you want the CAPTCHA to be shown (somewhere above the </form> tag)
+- b) add `<?php osc_run_hook('advcaptcha_hook_recover'); ?>` where you want the CAPTCHA to be shown (somewhere above the `</form>` tag)
 
 Add item form:
 - a) Open item-post.php in _oc-content/themes/your_theme_ and
-- b) add `<?php osc_run_hook('advcaptcha_hook_item'); ?>` where you want the CAPTCHA to be shown (somewhere above the </form> tag)
+- b) add `<?php osc_run_hook('advcaptcha_hook_item'); ?>` where you want the CAPTCHA to be shown (somewhere above the `</form>` tag)
 
 Edit item form:
 - a) Open item-post.php in _oc-content/themes/your_theme_ and
-- b) add `<?php osc_run_hook('advcaptcha_hook_item'); ?>` where you want the CAPTCHA to be shown (somewhere above the </form> tag)
+- b) add `<?php osc_run_hook('advcaptcha_hook_item'); ?>` where you want the CAPTCHA to be shown (somewhere above the `</form>` tag)
 
 Add comment form:
 - a) Open item.php/item-sidebar.php in _oc-content/themes/your_theme_ and
-- b) add `<?php osc_run_hook('advcaptcha_hook_comment'); ?>` where you want the CAPTCHA to be shown (somewhere above the </form> tag)
+- b) add `<?php osc_run_hook('advcaptcha_hook_comment'); ?>` where you want the CAPTCHA to be shown (somewhere above the `</form>` tag)
 
 ### TRANSLATION
 .pot translation template is provided. Translate using POedit or similar software.
