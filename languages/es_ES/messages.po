@@ -1,0 +1,214 @@
+# Osclass Advanced CAPTCHA plugin
+# This file is distributed under the same license as the PACKAGE package.
+msgid ""
+msgstr ""
+"Project-Id-Version: 100\n"
+"Report-Msgid-Bugs-To: forums.osclasscommunity.com\n"
+"POT-Creation-Date: 2020-02-16 00:38+0100\n"
+"PO-Revision-Date: 2020-02-17 11:28-0400\n"
+"Last-Translator: WEBmods <https://github.com/webmods-croatia>\n"
+"Language-Team: WEBmods <https://github.com/webmods-croatia>\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 2.0.6\n"
+
+#: classes/AdvancedCaptcha.php:177
+msgid "CAPTCHA not solved correctly. Please try again."
+msgstr "CAPTCHA no resuelto correctamente. Inténtalo de nuevo."
+
+#: classes/AdvancedCaptcha.php:254
+msgid "Advanced CAPTCHA"
+msgstr "Advanced CAPTCHA"
+
+#: classes/AdvancedCaptcha.php:255 views/admin/header.php:17 views/admin/settings.php:19
+msgid "Settings"
+msgstr "Ajustes"
+
+#: classes/controllers/Admin.php:49
+msgid "Settings updated."
+msgstr "Ajustes actualizados."
+
+#: helpers/hAdvancedCaptcha.php:45
+msgid "Login"
+msgstr "Login"
+
+#: helpers/hAdvancedCaptcha.php:54
+msgid "Register"
+msgstr "Registrarse"
+
+#: helpers/hAdvancedCaptcha.php:62
+msgid "Forgotten password"
+msgstr "Contraseña olvidada"
+
+#: helpers/hAdvancedCaptcha.php:71
+msgid "Contact"
+msgstr "Contacto"
+
+#: helpers/hAdvancedCaptcha.php:79
+msgid "Add an item"
+msgstr "Agregar un item"
+
+#: helpers/hAdvancedCaptcha.php:88
+msgid "Edit an item"
+msgstr "Editar un item"
+
+#: helpers/hAdvancedCaptcha.php:97
+msgid "Add a comment"
+msgstr "Agregar un comentario"
+
+#: views/admin/header.php:18
+msgid "Osclass Community"
+msgstr "Osclass Community"
+
+#: views/admin/header.php:19
+msgid "WEBmods"
+msgstr "WEBmods"
+
+#: views/admin/settings.php:14
+msgid "Question"
+msgstr "Pregunta"
+
+#: views/admin/settings.php:15
+msgid "Answer"
+msgstr "Respuesta"
+
+#: views/admin/settings.php:22
+msgid "reCAPTCHA V3 site key"
+msgstr "reCAPTCHA V3 site key"
+
+#: views/admin/settings.php:22 views/admin/settings.php:28
+msgid "Generate here"
+msgstr "Generar aquí"
+
+#: views/admin/settings.php:24
+msgid "Site key for reCAPTCHA v3."
+msgstr "Site key para reCAPTCHA v3."
+
+#: views/admin/settings.php:28
+msgid "reCAPTCHA V3 secret key"
+msgstr "reCAPTCHA V3 secret key"
+
+#: views/admin/settings.php:30
+msgid "Secret key for reCAPTCHA v3."
+msgstr "Secret key para reCAPTCHA v3."
+
+#: views/admin/settings.php:34 views/admin/settings.php:106
+msgid "reCAPTCHA V3 score threshold"
+msgstr "Umbral de puntuación reCAPTCHA V3"
+
+#: views/admin/settings.php:34
+msgid "More info"
+msgstr "Más info"
+
+#: views/admin/settings.php:36
+msgid "Score threshold for reCAPTCHA."
+msgstr "Umbral de puntuación para reCAPTCHA."
+
+#: views/admin/settings.php:40
+msgid "Q&A CAPTCHA questions"
+msgstr "Preguntas Q&A CAPTCHA"
+
+#: views/admin/settings.php:50 views/admin/settings.php:66
+msgid "Add more"
+msgstr "Agregar más"
+
+#: views/admin/settings.php:68 views/admin/settings.php:139
+msgid "Remove"
+msgstr "Eliminar"
+
+#: views/admin/settings.php:81
+msgid "Theme mod required"
+msgstr "Theme mod requerido"
+
+#: views/admin/settings.php:85
+#, php-format
+msgid "\"%s\" form"
+msgstr "\"%s\" form"
+
+#: views/admin/settings.php:88
+msgid "None"
+msgstr "Ninguno"
+
+#: views/admin/settings.php:89
+msgid "reCAPTCHA v3"
+msgstr "reCAPTCHA v3"
+
+#: views/admin/settings.php:90
+msgid "Math"
+msgstr "Math"
+
+#: views/admin/settings.php:91
+msgid "Text"
+msgstr "Text"
+
+#: views/admin/settings.php:92
+msgid "Q&A"
+msgstr "Q&A"
+
+#: views/admin/settings.php:99
+msgid "Save"
+msgstr "Guardar"
+
+#: views/admin/settings.php:107
+msgid ""
+"reCAPTCHA v3 returns a score (1.0 is very likely a good interaction, 0.0 is very likely a bot). "
+"Based on the score, you can take variable action in the context of your site."
+msgstr ""
+"reCAPTCHA v3 da una puntuación (muy probable que 1.0 sea una buena interacción, es muy probable que "
+"0.0 sea un bot). Según el puntaje, puede realizar acciones variables en el contexto de su sitio."
+
+#: views/admin/settings.php:108
+msgid ""
+"reCAPTCHA learns by seeing real traffic on your site. For this reason, scores in a staging "
+"environment or soon after implementing may differ from production. As reCAPTCHA v3 doesn't ever "
+"interrupt the user flow, you can first run reCAPTCHA without taking action and then decide on "
+"thresholds by looking at your traffic in the admin console. By default, you can use a threshold of "
+"0.5."
+msgstr ""
+"reCAPTCHA aprende al ver el tráfico real en su sitio. Por esta razón, los puntajes en un entorno de "
+"preparación o poco después de la implementación pueden diferir de la producción. Como reCAPTCHA v3 "
+"nunca interrumpe el flujo de usuarios, primero puede ejecutar reCAPTCHA sin tomar medidas y luego "
+"decidir los umbrales observando su tráfico en la consola de administración. Por defecto, puede usar "
+"un umbral de 0.5."
+
+#: views/admin/settings.php:110 views/admin/settings.php:120
+msgid "Close"
+msgstr "Cerrar"
+
+#: views/admin/settings.php:117
+msgid "Theme mod"
+msgstr "Theme mod"
+
+#: views/admin/settings.php:118
+msgid "Open"
+msgstr "Abrir"
+
+#: views/admin/settings.php:118
+msgid "in <i>oc-content/themes/your_theme</i> and add"
+msgstr "en <i>oc-content/themes/your_theme</i> y agregar"
+
+#: views/admin/settings.php:118
+msgid ""
+"where you want the CAPTCHA to be shown. It's usually somewhere above the <i>&lt;/form&gt;</i> tag."
+msgstr ""
+"donde desea que se muestre el CAPTCHA. Por lo general, está en algún lugar por encima de la "
+"etiqueta <i>&lt;/form&gt;</i>."
+
+#: views/web/math.php:14
+msgid "What's"
+msgstr "¿Qué es?"
+
+#: views/web/math.php:15 views/web/qna.php:16 views/web/text.php:18
+msgid "Refresh"
+msgstr "Actualizar"
+
+#: views/web/math.php:17 views/web/qna.php:19 views/web/text.php:20
+msgid "Fill me..."
+msgstr "Lléname..."
+
+#: views/web/text.php:17
+msgid "Enter the text from image above"
+msgstr "Ingrese el texto de la imagen de arriba"
