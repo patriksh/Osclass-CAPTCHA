@@ -1,6 +1,6 @@
 # Osclass Advanced CAPTCHA plugin
 
-![Advanced CAPTCHA Cover Image](https://placehold.it/1024x768?text=Advanced%20CAPTCHA)
+![Advanced CAPTCHA Cover Image](https://raw.githubusercontent.com/webmods-croatia/oscplugin-advcaptcha/master/assets/screenshots/cover.jpg)
 
 ### OVERVIEW
 Various CAPTCHA types: reCAPTCHA V3, math, text and Q&A CAPTCHA.
@@ -41,4 +41,8 @@ Add comment form:
 - [1.0.0] 16/02/2020 - Initial stable release.
 
 ### SCREENSHOTS
-TO BE DUE ![Some page](https://placehold.it/1024x768?text=Some%20photo)
+![Screenshot #1](https://raw.githubusercontent.com/webmods-croatia/oscplugin-advcaptcha/master/assets/screenshots/1.jpg)
+![Screenshot #2](https://raw.githubusercontent.com/webmods-croatia/oscplugin-advcaptcha/master/assets/screenshots/2.jpg)
+![Screenshot #3](https://raw.githubusercontent.com/webmods-croatia/oscplugin-advcaptcha/master/assets/screenshots/3.jpg)
+![Screenshot #4](https://raw.githubusercontent.com/webmods-croatia/oscplugin-advcaptcha/master/assets/screenshots/4.jpg)
+![Screenshot #5](https://raw.githubusercontent.com/webmods-croatia/oscplugin-advcaptcha/master/assets/screenshots/5.jpg)
