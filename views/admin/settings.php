@@ -39,7 +39,6 @@ $qna_key = 0;
         <fieldset class="uk-fieldset qna-append">
             <legend class="uk-legend"><?php _e('Q&A CAPTCHA questions', advcaptcha_plugin()); ?></legend>
             <?php if($pref['questions'] == '') { ?>
-
                 <div class="uk-margin uk-grid-small" uk-grid>
                     <div class="uk-width-2-5@s">
                         <input name="qna_q[0]" class="uk-input qna-q" type="text" placeholder="<?php echo $placeholder_q; ?>" required>
@@ -52,10 +51,8 @@ $qna_key = 0;
                     </div>
                 </div>
             <?php } else { ?>
-
                 <input type="hidden" id="qna-key" value="0">
                 <?php foreach(unserialize($pref['questions']) as $key => $question) { ?>
-
                     <?php $qna_key = $key;?>
                     <div class="uk-margin uk-grid-small" uk-grid>
                         <div class="uk-width-2-5@s">
@@ -73,9 +70,7 @@ $qna_key = 0;
                         </div>
                     </div>
                 <?php } ?>
-
             <?php } ?>
-
             <input type="hidden" id="qna-key" value="<?php echo $qna_key; ?>">
         </fieldset>
         <hr>
@@ -128,9 +123,7 @@ $qna_key = 0;
 </div>
 
 <script>
-
     $(document).ready(function() {
-
         $('.theme-mod-toggle').click(function() {
             var file = $(this).attr('data-file');
             var hook = "&lt;?php osc_run_hook('"+$(this).attr('data-hook')+"'); ?&gt;";
@@ -139,31 +132,19 @@ $qna_key = 0;
         });
 
         $('.qna-add').click(function(e) {
-
             e.preventDefault();
-
             var key = $('#qna-key').val();
             key++;
             $('#qna-key').val(key);
             $('.qna-append').append('<div class="uk-margin uk-grid-small" uk-grid><div class="uk-width-2-5@s"><input name="qna_q['+key+']" class="uk-input qna-q" type="text" placeholder="<?php echo $placeholder_q; ?>" required></div><div class="uk-width-2-5@s"><input name="qna_a['+key+']" class="uk-input qna-a" type="text" placeholder="<?php echo $placeholder_a; ?>" required></div><div class="uk-width-1-5@s"><button type="button" class="uk-button uk-button-secondary uk-width-1-1 qna-remove"><?php _e('Remove', advcaptcha_plugin()); ?></button></div></div>');
-
         });
 
-
         $('.qna-append').on('click', '.qna-remove', function(e) {
-
             e.preventDefault();
-
             var key = $('#qna-key').val();
             key--;
             $('#qna-key').val(key);
             $(this).parent().parent().remove();
-
-        })
-;
-
-        UIkit.icon($('.uk-form-icon')[0]);
+        });
     });
-
 </script>
-
