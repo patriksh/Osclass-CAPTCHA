@@ -57,7 +57,7 @@ class AdvancedCaptcha {
     function showForm() {
         $captcha = Session::newInstance()->_getForm(advcaptcha_session_key());
         if(in_array($captcha['type'], advcaptcha_types())) {
-            if (file_exists(WebThemes::newInstance()->getCurrentThemePath().'plugins/'.advcaptcha_plugin().'/'.$captcha['type'].'.php')) {
+            if(file_exists(WebThemes::newInstance()->getCurrentThemePath().'plugins/'.advcaptcha_plugin().'/'.$captcha['type'].'.php')) {
                 osc_current_web_theme_path('plugins/'.advcaptcha_plugin().'/'.$captcha['type'].'.php');
             } else {
                 include ADVCAPTCHA_PATH.'views/web/'.$captcha['type'].'.php';

@@ -15,15 +15,15 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 
-#: classes/AdvancedCaptcha.php:177
+#: classes/AdvancedCaptcha.php:181
 msgid "CAPTCHA not solved correctly. Please try again."
 msgstr "CAPTCHA nije riješena točno. Pokušajte ponovo."
 
-#: classes/AdvancedCaptcha.php:254
+#: classes/AdvancedCaptcha.php:258
 msgid "Advanced CAPTCHA"
 msgstr "Napredna CAPTCHA"
 
-#: classes/AdvancedCaptcha.php:255 views/admin/header.php:17
+#: classes/AdvancedCaptcha.php:259 views/admin/header.php:17
 #: views/admin/settings.php:19
 msgid "Settings"
 msgstr "Postavke"
@@ -61,12 +61,8 @@ msgid "Add a comment"
 msgstr "Dodavanje komentara"
 
 #: views/admin/header.php:18
-msgid "Osclass Community"
-msgstr "Osclass Community"
-
-#: views/admin/header.php:19
-msgid "WEBmods"
-msgstr "WEBmods"
+msgid "Support the author"
+msgstr "Podrži autora"
 
 #: views/admin/settings.php:14
 msgid "Question"
@@ -96,7 +92,7 @@ msgstr "reCAPTCHA V3 secret key"
 msgid "Secret key for reCAPTCHA v3."
 msgstr "Secret key za reCAPTCHA v3."
 
-#: views/admin/settings.php:34 views/admin/settings.php:106
+#: views/admin/settings.php:34 views/admin/settings.php:116
 msgid "reCAPTCHA V3 score threshold"
 msgstr "reCAPTCHA V3 bodovni prag"
 
@@ -116,7 +112,7 @@ msgstr "Q&A CAPTCHA pitanja"
 msgid "Add more"
 msgstr "Dodaj"
 
-#: views/admin/settings.php:68 views/admin/settings.php:139
+#: views/admin/settings.php:68 views/admin/settings.php:149
 msgid "Remove"
 msgstr "Ukloni"
 
@@ -150,10 +146,28 @@ msgid "Q&A"
 msgstr "Pitanje i odgovor"
 
 #: views/admin/settings.php:99
+msgid "Adapting to your theme, adding CAPTCHA to an existing plugin"
+msgstr "Prilagodba vašoj temi i dodavanje CAPTCHA na postojeći plugin"
+
+#: views/admin/settings.php:101
+#, php-format
+msgid "Ask on our <a href=\"%s\">support forums</a>."
+msgstr "Pitaj na našem <a href=\"%s\">forumu</a>."
+
+#: views/admin/settings.php:104
+#, php-format
+msgid ""
+"Drop me a mail at <a href=\"mailto:%s\">%s</a> for premium integration to "
+"your site."
+msgstr ""
+"Javite se na <a href=\"mailto:%s\">%s</a> za premium integraciju na vašu web "
+"stranicu."
+
+#: views/admin/settings.php:109
 msgid "Save"
 msgstr "Spremi"
 
-#: views/admin/settings.php:107
+#: views/admin/settings.php:117
 msgid ""
 "reCAPTCHA v3 returns a score (1.0 is very likely a good interaction, 0.0 is "
 "very likely a bot). Based on the score, you can take variable action in the "
@@ -162,7 +176,7 @@ msgstr ""
 "reCAPTCHA v3 daje bodove ovisno o ponašanju korisnika (1.0 je vjerojatno "
 "pravi korisnik, dok je 0.0 bot)."
 
-#: views/admin/settings.php:108
+#: views/admin/settings.php:118
 msgid ""
 "reCAPTCHA learns by seeing real traffic on your site. For this reason, "
 "scores in a staging environment or soon after implementing may differ from "
@@ -178,23 +192,23 @@ msgstr ""
 "neki realni bodovni prag. Ako se ne želite zamarati s promatranjem "
 "rezultata, preporučeni prag je 0.5."
 
-#: views/admin/settings.php:110 views/admin/settings.php:120
+#: views/admin/settings.php:120 views/admin/settings.php:130
 msgid "Close"
 msgstr "Zatvori"
 
-#: views/admin/settings.php:117
+#: views/admin/settings.php:127
 msgid "Theme mod"
 msgstr "Modificiranje teme"
 
-#: views/admin/settings.php:118
+#: views/admin/settings.php:128
 msgid "Open"
 msgstr "Otvorite"
 
-#: views/admin/settings.php:118
+#: views/admin/settings.php:128
 msgid "in <i>oc-content/themes/your_theme</i> and add"
 msgstr "u <i>oc-content/themes/vasa_tema</i> i dodajte"
 
-#: views/admin/settings.php:118
+#: views/admin/settings.php:128
 msgid ""
 "where you want the CAPTCHA to be shown. It's usually somewhere above the "
 "<i>&lt;/form&gt;</i> tag."
@@ -217,3 +231,9 @@ msgstr "Ispuni me..."
 #: views/web/text.php:17
 msgid "Enter the text from image above"
 msgstr "Unesite tekst sa slike iznad"
+
+#~ msgid "Osclass Community"
+#~ msgstr "Osclass Community"
+
+#~ msgid "WEBmods"
+#~ msgstr "WEBmods"

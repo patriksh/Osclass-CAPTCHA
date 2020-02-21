@@ -14,15 +14,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: classes/AdvancedCaptcha.php:177
+#: classes/AdvancedCaptcha.php:181
 msgid "CAPTCHA not solved correctly. Please try again."
 msgstr "CAPTCHA not solved correctly. Please try again."
 
-#: classes/AdvancedCaptcha.php:254
+#: classes/AdvancedCaptcha.php:258
 msgid "Advanced CAPTCHA"
 msgstr "Advanced CAPTCHA"
 
-#: classes/AdvancedCaptcha.php:255 views/admin/header.php:17
+#: classes/AdvancedCaptcha.php:259 views/admin/header.php:17
 #: views/admin/settings.php:19
 msgid "Settings"
 msgstr "Settings"
@@ -60,12 +60,8 @@ msgid "Add a comment"
 msgstr "Add a comment"
 
 #: views/admin/header.php:18
-msgid "Osclass Community"
-msgstr "Osclass Community"
-
-#: views/admin/header.php:19
-msgid "WEBmods"
-msgstr "WEBmods"
+msgid "Support the author"
+msgstr "Support the author"
 
 #: views/admin/settings.php:14
 msgid "Question"
@@ -95,7 +91,7 @@ msgstr "reCAPTCHA V3 secret key"
 msgid "Secret key for reCAPTCHA v3."
 msgstr "Secret key for reCAPTCHA v3."
 
-#: views/admin/settings.php:34 views/admin/settings.php:106
+#: views/admin/settings.php:34 views/admin/settings.php:116
 msgid "reCAPTCHA V3 score threshold"
 msgstr "reCAPTCHA V3 score threshold"
 
@@ -115,7 +111,7 @@ msgstr "Q&A CAPTCHA questions"
 msgid "Add more"
 msgstr "Add more"
 
-#: views/admin/settings.php:68 views/admin/settings.php:139
+#: views/admin/settings.php:68 views/admin/settings.php:149
 msgid "Remove"
 msgstr "Remove"
 
@@ -149,10 +145,28 @@ msgid "Q&A"
 msgstr "Q&A"
 
 #: views/admin/settings.php:99
+msgid "Adapting to your theme, adding CAPTCHA to an existing plugin"
+msgstr "Adapting to your theme, adding CAPTCHA to an existing plugin"
+
+#: views/admin/settings.php:101
+#, php-format
+msgid "Ask on our <a href=\"%s\">support forums</a>."
+msgstr "Ask on our <a href=\"%s\">support forums</a>."
+
+#: views/admin/settings.php:104
+#, php-format
+msgid ""
+"Drop me a mail at <a href=\"mailto:%s\">%s</a> for premium integration to "
+"your site."
+msgstr ""
+"Drop me a mail at <a href=\"mailto:%s\">%s</a> for premium integration to "
+"your site."
+
+#: views/admin/settings.php:109
 msgid "Save"
 msgstr "Save"
 
-#: views/admin/settings.php:107
+#: views/admin/settings.php:117
 msgid ""
 "reCAPTCHA v3 returns a score (1.0 is very likely a good interaction, 0.0 is "
 "very likely a bot). Based on the score, you can take variable action in the "
@@ -162,7 +176,7 @@ msgstr ""
 "very likely a bot). Based on the score, you can take variable action in the "
 "context of your site."
 
-#: views/admin/settings.php:108
+#: views/admin/settings.php:118
 msgid ""
 "reCAPTCHA learns by seeing real traffic on your site. For this reason, "
 "scores in a staging environment or soon after implementing may differ from "
@@ -178,23 +192,23 @@ msgstr ""
 "looking at your traffic in the admin console. By default, you can use a "
 "threshold of 0.5."
 
-#: views/admin/settings.php:110 views/admin/settings.php:120
+#: views/admin/settings.php:120 views/admin/settings.php:130
 msgid "Close"
 msgstr "Close"
 
-#: views/admin/settings.php:117
+#: views/admin/settings.php:127
 msgid "Theme mod"
 msgstr "Theme mod"
 
-#: views/admin/settings.php:118
+#: views/admin/settings.php:128
 msgid "Open"
 msgstr "Open"
 
-#: views/admin/settings.php:118
+#: views/admin/settings.php:128
 msgid "in <i>oc-content/themes/your_theme</i> and add"
 msgstr "in <i>oc-content/themes/your_theme</i> and add"
 
-#: views/admin/settings.php:118
+#: views/admin/settings.php:128
 msgid ""
 "where you want the CAPTCHA to be shown. It's usually somewhere above the "
 "<i>&lt;/form&gt;</i> tag."
@@ -208,7 +222,7 @@ msgstr "What's"
 
 #: views/web/math.php:15 views/web/qna.php:16 views/web/text.php:18
 msgid "Refresh"
-msgstr ""
+msgstr "Refresh"
 
 #: views/web/math.php:17 views/web/qna.php:19 views/web/text.php:20
 msgid "Fill me..."
@@ -217,3 +231,9 @@ msgstr "Fill me..."
 #: views/web/text.php:17
 msgid "Enter the text from image above"
 msgstr "Enter the text from image above"
+
+#~ msgid "Osclass Community"
+#~ msgstr "Osclass Community"
+
+#~ msgid "WEBmods"
+#~ msgstr "WEBmods"

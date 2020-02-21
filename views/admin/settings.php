@@ -94,6 +94,16 @@ $qna_key = 0;
                 </div>
             </fieldset>
         <?php } ?>
+        <hr>
+        <fieldset class="uk-fieldset">
+            <legend class="uk-legend"><?php _e('Adapting to your theme, adding CAPTCHA to an existing plugin') ?></legend>
+            <div class="uk-margin">
+                <p><?php printf(__('Ask on our <a href="%s">support forums</a>.'), 'https://forums.osclasscommunity.com'); ?></p>
+            </div>
+            <div class="uk-margin">
+                <p><?php printf(__('Drop me a mail at <a href="mailto:%s">%s</a> for premium integration to your site.'), 'patrikkos04@gmail.com', 'patrikkos04(at)gmail.com'); ?></p>
+            </div>
+        </fieldset>
 
         <div class="uk-align-center uk-text-center">
             <button type="submit" class="uk-button uk-button-primary uk-button-large"><?php _e('Save', advcaptcha_plugin()); ?></button>

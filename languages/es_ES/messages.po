@@ -15,15 +15,16 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 2.0.6\n"
 
-#: classes/AdvancedCaptcha.php:177
+#: classes/AdvancedCaptcha.php:181
 msgid "CAPTCHA not solved correctly. Please try again."
 msgstr "CAPTCHA no resuelto correctamente. Inténtalo de nuevo."
 
-#: classes/AdvancedCaptcha.php:254
+#: classes/AdvancedCaptcha.php:258
 msgid "Advanced CAPTCHA"
 msgstr "Advanced CAPTCHA"
 
-#: classes/AdvancedCaptcha.php:255 views/admin/header.php:17 views/admin/settings.php:19
+#: classes/AdvancedCaptcha.php:259 views/admin/header.php:17
+#: views/admin/settings.php:19
 msgid "Settings"
 msgstr "Ajustes"
 
@@ -60,12 +61,8 @@ msgid "Add a comment"
 msgstr "Agregar un comentario"
 
 #: views/admin/header.php:18
-msgid "Osclass Community"
-msgstr "Osclass Community"
-
-#: views/admin/header.php:19
-msgid "WEBmods"
-msgstr "WEBmods"
+msgid "Support the author"
+msgstr "Apoyar al autor"
 
 #: views/admin/settings.php:14
 msgid "Question"
@@ -95,7 +92,7 @@ msgstr "reCAPTCHA V3 secret key"
 msgid "Secret key for reCAPTCHA v3."
 msgstr "Secret key para reCAPTCHA v3."
 
-#: views/admin/settings.php:34 views/admin/settings.php:106
+#: views/admin/settings.php:34 views/admin/settings.php:116
 msgid "reCAPTCHA V3 score threshold"
 msgstr "Umbral de puntuación reCAPTCHA V3"
 
@@ -115,7 +112,7 @@ msgstr "Preguntas Q&A CAPTCHA"
 msgid "Add more"
 msgstr "Agregar más"
 
-#: views/admin/settings.php:68 views/admin/settings.php:139
+#: views/admin/settings.php:68 views/admin/settings.php:149
 msgid "Remove"
 msgstr "Eliminar"
 
@@ -149,53 +146,74 @@ msgid "Q&A"
 msgstr "Q&A"
 
 #: views/admin/settings.php:99
+msgid "Adapting to your theme, adding CAPTCHA to an existing plugin"
+msgstr ""
+
+#: views/admin/settings.php:101
+#, php-format
+msgid "Ask on our <a href=\"%s\">support forums</a>."
+msgstr ""
+
+#: views/admin/settings.php:104
+#, php-format
+msgid ""
+"Drop me a mail at <a href=\"mailto:%s\">%s</a> for premium integration to "
+"your site."
+msgstr ""
+
+#: views/admin/settings.php:109
 msgid "Save"
 msgstr "Guardar"
 
-#: views/admin/settings.php:107
+#: views/admin/settings.php:117
 msgid ""
-"reCAPTCHA v3 returns a score (1.0 is very likely a good interaction, 0.0 is very likely a bot). "
-"Based on the score, you can take variable action in the context of your site."
+"reCAPTCHA v3 returns a score (1.0 is very likely a good interaction, 0.0 is "
+"very likely a bot). Based on the score, you can take variable action in the "
+"context of your site."
 msgstr ""
-"reCAPTCHA v3 da una puntuación (muy probable que 1.0 sea una buena interacción, es muy probable que "
-"0.0 sea un bot). Según el puntaje, puede realizar acciones variables en el contexto de su sitio."
+"reCAPTCHA v3 da una puntuación (muy probable que 1.0 sea una buena "
+"interacción, es muy probable que 0.0 sea un bot). Según el puntaje, puede "
+"realizar acciones variables en el contexto de su sitio."
 
-#: views/admin/settings.php:108
+#: views/admin/settings.php:118
 msgid ""
-"reCAPTCHA learns by seeing real traffic on your site. For this reason, scores in a staging "
-"environment or soon after implementing may differ from production. As reCAPTCHA v3 doesn't ever "
-"interrupt the user flow, you can first run reCAPTCHA without taking action and then decide on "
-"thresholds by looking at your traffic in the admin console. By default, you can use a threshold of "
-"0.5."
+"reCAPTCHA learns by seeing real traffic on your site. For this reason, "
+"scores in a staging environment or soon after implementing may differ from "
+"production. As reCAPTCHA v3 doesn't ever interrupt the user flow, you can "
+"first run reCAPTCHA without taking action and then decide on thresholds by "
+"looking at your traffic in the admin console. By default, you can use a "
+"threshold of 0.5."
 msgstr ""
-"reCAPTCHA aprende al ver el tráfico real en su sitio. Por esta razón, los puntajes en un entorno de "
-"preparación o poco después de la implementación pueden diferir de la producción. Como reCAPTCHA v3 "
-"nunca interrumpe el flujo de usuarios, primero puede ejecutar reCAPTCHA sin tomar medidas y luego "
-"decidir los umbrales observando su tráfico en la consola de administración. Por defecto, puede usar "
-"un umbral de 0.5."
+"reCAPTCHA aprende al ver el tráfico real en su sitio. Por esta razón, los "
+"puntajes en un entorno de preparación o poco después de la implementación "
+"pueden diferir de la producción. Como reCAPTCHA v3 nunca interrumpe el flujo "
+"de usuarios, primero puede ejecutar reCAPTCHA sin tomar medidas y luego "
+"decidir los umbrales observando su tráfico en la consola de administración. "
+"Por defecto, puede usar un umbral de 0.5."
 
-#: views/admin/settings.php:110 views/admin/settings.php:120
+#: views/admin/settings.php:120 views/admin/settings.php:130
 msgid "Close"
 msgstr "Cerrar"
 
-#: views/admin/settings.php:117
+#: views/admin/settings.php:127
 msgid "Theme mod"
 msgstr "Theme mod"
 
-#: views/admin/settings.php:118
+#: views/admin/settings.php:128
 msgid "Open"
 msgstr "Abrir"
 
-#: views/admin/settings.php:118
+#: views/admin/settings.php:128
 msgid "in <i>oc-content/themes/your_theme</i> and add"
 msgstr "en <i>oc-content/themes/your_theme</i> y agregar"
 
-#: views/admin/settings.php:118
+#: views/admin/settings.php:128
 msgid ""
-"where you want the CAPTCHA to be shown. It's usually somewhere above the <i>&lt;/form&gt;</i> tag."
+"where you want the CAPTCHA to be shown. It's usually somewhere above the "
+"<i>&lt;/form&gt;</i> tag."
 msgstr ""
-"donde desea que se muestre el CAPTCHA. Por lo general, está en algún lugar por encima de la "
-"etiqueta <i>&lt;/form&gt;</i>."
+"donde desea que se muestre el CAPTCHA. Por lo general, está en algún lugar "
+"por encima de la etiqueta <i>&lt;/form&gt;</i>."
 
 #: views/web/math.php:14
 msgid "What's"
@@ -212,3 +230,9 @@ msgstr "Lléname..."
 #: views/web/text.php:17
 msgid "Enter the text from image above"
 msgstr "Ingrese el texto de la imagen de arriba"
+
+#~ msgid "Osclass Community"
+#~ msgstr "Osclass Community"
+
+#~ msgid "WEBmods"
+#~ msgstr "WEBmods"

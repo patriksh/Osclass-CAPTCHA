@@ -14,15 +14,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
 
-#: classes/AdvancedCaptcha.php:177
+#: classes/AdvancedCaptcha.php:181
 msgid "CAPTCHA not solved correctly. Please try again."
 msgstr ""
 
-#: classes/AdvancedCaptcha.php:254
+#: classes/AdvancedCaptcha.php:258
 msgid "Advanced CAPTCHA"
 msgstr ""
 
-#: classes/AdvancedCaptcha.php:255 views/admin/header.php:17
+#: classes/AdvancedCaptcha.php:259 views/admin/header.php:17
 #: views/admin/settings.php:19
 msgid "Settings"
 msgstr ""
@@ -60,11 +60,7 @@ msgid "Add a comment"
 msgstr ""
 
 #: views/admin/header.php:18
-msgid "Osclass Community"
-msgstr ""
-
-#: views/admin/header.php:19
-msgid "WEBmods"
+msgid "Support the author"
 msgstr ""
 
 #: views/admin/settings.php:14
@@ -95,7 +91,7 @@ msgstr ""
 msgid "Secret key for reCAPTCHA v3."
 msgstr ""
 
-#: views/admin/settings.php:34 views/admin/settings.php:106
+#: views/admin/settings.php:34 views/admin/settings.php:116
 msgid "reCAPTCHA V3 score threshold"
 msgstr ""
 
@@ -115,7 +111,7 @@ msgstr ""
 msgid "Add more"
 msgstr ""
 
-#: views/admin/settings.php:68 views/admin/settings.php:139
+#: views/admin/settings.php:68 views/admin/settings.php:149
 msgid "Remove"
 msgstr ""
 
@@ -149,17 +145,33 @@ msgid "Q&A"
 msgstr ""
 
 #: views/admin/settings.php:99
+msgid "Adapting to your theme, adding CAPTCHA to an existing plugin"
+msgstr ""
+
+#: views/admin/settings.php:101
+#, php-format
+msgid "Ask on our <a href=\"%s\">support forums</a>."
+msgstr ""
+
+#: views/admin/settings.php:104
+#, php-format
+msgid ""
+"Drop me a mail at <a href=\"mailto:%s\">%s</a> for premium integration to "
+"your site."
+msgstr ""
+
+#: views/admin/settings.php:109
 msgid "Save"
 msgstr ""
 
-#: views/admin/settings.php:107
+#: views/admin/settings.php:117
 msgid ""
 "reCAPTCHA v3 returns a score (1.0 is very likely a good interaction, 0.0 is "
 "very likely a bot). Based on the score, you can take variable action in the "
 "context of your site."
 msgstr ""
 
-#: views/admin/settings.php:108
+#: views/admin/settings.php:118
 msgid ""
 "reCAPTCHA learns by seeing real traffic on your site. For this reason, "
 "scores in a staging environment or soon after implementing may differ from "
@@ -169,23 +181,23 @@ msgid ""
 "threshold of 0.5."
 msgstr ""
 
-#: views/admin/settings.php:110 views/admin/settings.php:120
+#: views/admin/settings.php:120 views/admin/settings.php:130
 msgid "Close"
 msgstr ""
 
-#: views/admin/settings.php:117
+#: views/admin/settings.php:127
 msgid "Theme mod"
 msgstr ""
 
-#: views/admin/settings.php:118
+#: views/admin/settings.php:128
 msgid "Open"
 msgstr ""
 
-#: views/admin/settings.php:118
+#: views/admin/settings.php:128
 msgid "in <i>oc-content/themes/your_theme</i> and add"
 msgstr ""
 
-#: views/admin/settings.php:118
+#: views/admin/settings.php:128
 msgid ""
 "where you want the CAPTCHA to be shown. It's usually somewhere above the "
 "<i>&lt;/form&gt;</i> tag."
