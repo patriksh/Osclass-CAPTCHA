@@ -11,7 +11,7 @@ Requires small theme mods in some cases. Described in admin settings page.
 ### INSTALLATION
 Two options:
 - a) Download zip from GitHub - click on releases tab - download latest zip - import in oc-admin.
-- b) TO BE DUE Download zip from Market - https://market.osclasscommunity.com/index.php?page=item&id= - import in oc-admin.
+- b) Download zip from Market - https://market.osclasscommunity.com/plugins/advanced-captcha_i46 - import in oc-admin.
 
 ### THEME MODS
 Login form:
