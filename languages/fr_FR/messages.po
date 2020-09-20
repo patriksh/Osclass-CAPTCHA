@@ -1,0 +1,239 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Advanced CAPTCHA v100\n"
+"POT-Creation-Date: 2020-06-27 20:44+0200\n"
+"PO-Revision-Date: 2020-06-27 22:46+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.4\n"
+"X-Poedit-Basepath: ../..\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_m\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: classes/AdvancedCaptcha.php:181
+msgid "CAPTCHA not solved correctly. Please try again."
+msgstr ""
+"Le CAPTCHA n'a pas été résolu correctement. Essayez à nouveau s'il vous "
+"plait."
+
+#: classes/AdvancedCaptcha.php:258
+msgid "Advanced CAPTCHA"
+msgstr "Advanced CAPTCHA"
+
+#: classes/AdvancedCaptcha.php:259 views/admin/header.php:17
+#: views/admin/settings.php:19
+msgid "Settings"
+msgstr "Paramètres"
+
+#: classes/controllers/Admin.php:49
+msgid "Settings updated."
+msgstr "Paramètres mis à jour"
+
+#: helpers/hAdvancedCaptcha.php:45
+msgid "Login"
+msgstr "Login"
+
+#: helpers/hAdvancedCaptcha.php:54
+msgid "Register"
+msgstr "S'inscrire"
+
+#: helpers/hAdvancedCaptcha.php:62
+msgid "Forgotten password"
+msgstr "Mot de passe oublié"
+
+#: helpers/hAdvancedCaptcha.php:71
+msgid "Contact"
+msgstr "Contact"
+
+#: helpers/hAdvancedCaptcha.php:79
+msgid "Add an item"
+msgstr "Publier une annonce"
+
+#: helpers/hAdvancedCaptcha.php:88
+msgid "Edit an item"
+msgstr "Modifier une annonce"
+
+#: helpers/hAdvancedCaptcha.php:97
+msgid "Add a comment"
+msgstr "Ajouter un commentaire"
+
+#: views/admin/header.php:18
+msgid "Support the author"
+msgstr "Soutenir l'auteur"
+
+#: views/admin/settings.php:14
+msgid "Question"
+msgstr "Question"
+
+#: views/admin/settings.php:15
+msgid "Answer"
+msgstr "Réponse"
+
+#: views/admin/settings.php:22
+msgid "reCAPTCHA V3 site key"
+msgstr "reCAPTCHA V3 clé du site"
+
+#: views/admin/settings.php:22 views/admin/settings.php:28
+msgid "Generate here"
+msgstr "Générer ici"
+
+#: views/admin/settings.php:24
+msgid "Site key for reCAPTCHA v3."
+msgstr "Clé du site pour reCAPTCHA v3."
+
+#: views/admin/settings.php:28
+msgid "reCAPTCHA V3 secret key"
+msgstr "reCAPTCHA V3 clè secrète"
+
+#: views/admin/settings.php:30
+msgid "Secret key for reCAPTCHA v3."
+msgstr "Clé secrète pour reCAPTCHA v3."
+
+#: views/admin/settings.php:34 views/admin/settings.php:116
+msgid "reCAPTCHA V3 score threshold"
+msgstr "reCAPTCHA V3 seuil de score"
+
+#: views/admin/settings.php:34
+msgid "More info"
+msgstr "Plus d'infos"
+
+#: views/admin/settings.php:36
+msgid "Score threshold for reCAPTCHA."
+msgstr "Score seuil pour reCAPTCHA."
+
+#: views/admin/settings.php:40
+msgid "Q&A CAPTCHA questions"
+msgstr "Captcha de type question-réponse"
+
+#: views/admin/settings.php:50 views/admin/settings.php:66
+msgid "Add more"
+msgstr "Ajouter plus"
+
+#: views/admin/settings.php:68 views/admin/settings.php:149
+msgid "Remove"
+msgstr "Supprimer"
+
+#: views/admin/settings.php:81
+msgid "Theme mod required"
+msgstr "Modification du thème recquis"
+
+#: views/admin/settings.php:85
+#, php-format
+msgid "\"%s\" form"
+msgstr "Formulaire \"%s\""
+
+#: views/admin/settings.php:88
+msgid "None"
+msgstr "Aucun"
+
+#: views/admin/settings.php:89
+msgid "reCAPTCHA v3"
+msgstr "reCAPTCHA v3"
+
+#: views/admin/settings.php:90
+msgid "Math"
+msgstr "Math"
+
+#: views/admin/settings.php:91
+msgid "Text"
+msgstr "Texte"
+
+#: views/admin/settings.php:92
+msgid "Q&A"
+msgstr "Questions-réponses"
+
+#: views/admin/settings.php:99
+msgid "Adapting to your theme, adding CAPTCHA to an existing plugin"
+msgstr "Adaptez-le à votre thème, en ajoutant CAPTCHA à un plugin existant"
+
+#: views/admin/settings.php:101
+#, php-format
+msgid "Ask on our <a href=\"%s\">support forums</a>."
+msgstr "Posez vos questions sur notre <a href=\"%s\">forum d'assistance</a>."
+
+#: views/admin/settings.php:104
+#, php-format
+msgid ""
+"Drop me a mail at <a href=\"mailto:%s\">%s</a> for premium integration to "
+"your site."
+msgstr ""
+"Envoyez-moi un email à l'adresse <a href=\"mailto:%s\">%s</a> pour une "
+"intégration premium à votre site."
+
+#: views/admin/settings.php:109
+msgid "Save"
+msgstr "Enregistrer"
+
+#: views/admin/settings.php:117
+msgid ""
+"reCAPTCHA v3 returns a score (1.0 is very likely a good interaction, 0.0 is "
+"very likely a bot). Based on the score, you can take variable action in the "
+"context of your site."
+msgstr ""
+"reCAPTCHA v3 renvoie un score (1.0 correspond très probablement à une bonne "
+"interaction, 0.0 correspond très probablement à un bot). En fonction du "
+"score, vous pouvez prendre des mesures adaptées par rapport au contexte de "
+"votre site."
+
+#: views/admin/settings.php:118
+msgid ""
+"reCAPTCHA learns by seeing real traffic on your site. For this reason, "
+"scores in a staging environment or soon after implementing may differ from "
+"production. As reCAPTCHA v3 doesn't ever interrupt the user flow, you can "
+"first run reCAPTCHA without taking action and then decide on thresholds by "
+"looking at your traffic in the admin console. By default, you can use a "
+"threshold of 0.5."
+msgstr ""
+"reCAPTCHA apprend en regardant le trafic réel sur votre site. Pour cette "
+"raison, les scores dans un environnement intermédiaire ou peu de temps "
+"après la mise en œuvre peuvent différer de la production. Comme reCAPTCHA "
+"v3 n'interrompt jamais le flux d'utilisateurs, vous pouvez d'abord exécuter "
+"reCAPTCHA sans prendre de mesures, puis décider des seuils en examinant "
+"votre trafic dans la console d'administration. Par défaut, vous pouvez "
+"utiliser un seuil de 0,5."
+
+#: views/admin/settings.php:120 views/admin/settings.php:130
+msgid "Close"
+msgstr "Fermer"
+
+#: views/admin/settings.php:127
+msgid "Theme mod"
+msgstr "Modification du thème"
+
+#: views/admin/settings.php:128
+msgid "Open"
+msgstr "Ouvrir"
+
+#: views/admin/settings.php:128
+msgid "in <i>oc-content/themes/your_theme</i> and add"
+msgstr "dans <i>oc-content/themes/your_theme</i> et ajoutez"
+
+#: views/admin/settings.php:128
+msgid ""
+"where you want the CAPTCHA to be shown. It's usually somewhere above the "
+"<i>&lt;/form&gt;</i> tag."
+msgstr ""
+"où vous voulez que le CAPTCHA soit affiché. C'est généralement quelque part "
+"au-dessus de la balise <i>&lt;/form&gt;</i>."
+
+#: views/web/math.php:14
+msgid "What's"
+msgstr "Combien font"
+
+#: views/web/math.php:15 views/web/qna.php:16 views/web/text.php:18
+msgid "Refresh"
+msgstr "Rafraîchir"
+
+#: views/web/math.php:18 views/web/qna.php:19 views/web/text.php:20
+msgid "Fill me..."
+msgstr "Remplissez-moi ..."
+
+#: views/web/text.php:17
+msgid "Enter the text from image above"
+msgstr "Entrez le texte de l'image ci-dessus"
