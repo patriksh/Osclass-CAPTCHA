@@ -51,7 +51,6 @@ $qna_key = 0;
                     </div>
                 </div>
             <?php } else { ?>
-                <input type="hidden" id="qna-key" value="0">
                 <?php foreach(unserialize($pref['questions']) as $key => $question) { ?>
                     <?php $qna_key = $key;?>
                     <div class="uk-margin uk-grid-small" uk-grid>
