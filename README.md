@@ -38,8 +38,8 @@ Add comment form:
 .pot translation template is provided. Translate using POedit or similar software.
 
 ### CHANGELOG
-- [1.0.1] 21/02/2020 - Fixes, plugin uploaded on the Market, Spanish language by [@codexilab](https://github.com/codexilab)
-- [1.0.0] 16/02/2020 - Initial stable release.
+- [x] [1.0.1] 21/02/2020 - Fixes, plugin uploaded on the Market, Spanish language by [@codexilab](https://github.com/codexilab)
+- [x] [1.0.0] 16/02/2020 - Initial stable release.
 
 ### SCREENSHOTS
 ![Screenshot #1](https://raw.githubusercontent.com/webmods-croatia/oscplugin-advcaptcha/master/assets/screenshots/1.jpg)
