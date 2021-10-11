@@ -1,7 +1,5 @@
 # Osclass Advanced CAPTCHA plugin
 
-![Advanced CAPTCHA Cover Image](https://raw.githubusercontent.com/webmods-croatia/oscplugin-advcaptcha/master/assets/screenshots/cover.jpg)
-
 ### OVERVIEW
 Various CAPTCHA types: reCAPTCHA V3, math, text and Q&A CAPTCHA.
 Login, register, forgotten password, contact, post item, edit item and add comment forms.
@@ -9,9 +7,7 @@ reCAPTCHA V3 is fully invisible.
 Requires small theme mods in some cases. Described in admin settings page.
 
 ### INSTALLATION
-Two options:
-- a) Download zip from GitHub - click on releases tab - download latest zip - import in oc-admin.
-- b) Download zip from Market - https://market.osclasscommunity.com/plugins/advanced-captcha_i46 - import in oc-admin.
+Download zip from GitHub - click on releases tab - download latest zip - import in oc-admin.
 
 ### THEME MODS
 Login form:
