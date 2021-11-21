@@ -1,0 +1,118 @@
+/* Font */
+* {
+    font-family: 'Raleway', sans-serif;
+}
+
+/* I hate Osclass admin UI */
+#content-head {
+    padding: 0 !important;
+    height: auto !important;
+}
+
+#content-page {
+    padding: 10px;
+    background: #eff1f2;
+}
+
+.grid-row .row-wrapper {
+    margin: 0;
+}
+
+.input-text, input[type="text"], .input-password, input[type="password"] {
+    display: inline-block !important;
+    vertical-align: middle !important;
+    width: 100% !important;
+    height: 40px !important;
+    padding: 0 10px !important;
+    border: 1px solid #e5e5e5 !important;
+    border-radius: 0 !important;
+    box-shadow: 0 0 0 0 !important;
+    color: #666 !important;
+    font-size: 14px !important;
+}
+
+/* Colors */
+.dftd-white {
+    color: #fff;
+}
+
+.dftd-gray {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.dftd-background {
+    background: -webkit-linear-gradient(45deg, #f05051 48%, #222 48%);
+    background: -webkit-linear-gradient(left, #f05051 48%, #222 48%);
+    background: linear-gradient(45deg, #f05051 48%, #222 48%);
+}
+
+.uk-label:hover {
+    color: #fff;
+}
+
+/* Typography */
+.dftd p {
+    margin-block-start:0;
+    margin-block-end:0;
+}
+
+.dftd a:hover {
+    text-decoration: none;
+}
+
+/* Topbar */
+.dftd-topbar {
+    background: #212529;
+}
+
+.dftd-topbar a {
+    color: #f05051;
+}
+
+.dftd-topbar p {
+    padding: 5px;
+    color: #fff;
+    text-align: right;
+    margin-right: 2em;
+}
+
+/* Navbar */
+.dftd-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 62px;
+}
+
+.dftd-navbar-logo {
+    font-size: 2em;
+    margin-left: 2em;
+    color: #fff;
+}
+
+.dftd-navbar-items {
+    display: flex;
+    margin-right: 2em;
+}
+
+.dftd-navbar-items li a {
+    color: rgba(255, 255, 255, 0.75);
+    margin: 0 10px 0 10px;
+}
+
+.dftd-navbar-items li.active a, .dftd-navbar-items li:hover a {
+    color: #fff;
+}
+
+.dftd-navbar-items .uk-badge {
+    align-items: unset;
+}
+
+/* Settings. */
+.dftd-settings {
+    background: #fff;
+}
+
+.uk-form-icon {
+    top:2px;
+}
