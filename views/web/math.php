@@ -9,7 +9,7 @@ $captcha = Session::newInstance()->_get(ADVCAPTCHA_SESSION_KEY);
 
 <div class="control-group">
     <label class="control-label" for="advcaptcha">
-        <?php _e('What\'s', ADVCAPTCHA_FOLDER); ?> <span class="advcaptcha-num1"><?php echo $captcha['problem']['num1']; ?></span> + <span class="advcaptcha-num2"><?php echo $captcha['problem']['num2']; ?></span>?
+        <?php _e('What\'s', ADVCAPTCHA_FOLDER); ?> <strong class="advcaptcha-num1"><?php echo $captcha['problem']['num1']; ?></strong> <strong>+</strong> <strong class="advcaptcha-num2"><?php echo $captcha['problem']['num2']; ?></strong> ?
         <span class="advcaptcha-refresh">
             <img src="<?php echo AdvCAPTCHA_Helper::assetUrl('refresh.svg'); ?>" alt="<?php _e('Refresh', ADVCAPTCHA_FOLDER); ?>" title="<?php _e('Refresh', ADVCAPTCHA_FOLDER); ?>">
         </span>
