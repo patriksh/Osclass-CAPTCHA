@@ -15,7 +15,7 @@ $(function() {
                         $('.advcaptcha-q').html(response.problem.question);
                     break;
                     case 'text':
-                        $('.advcaptcha-img').attr('src', response.problem.img);
+                        $('.advcaptcha-img').attr('src', response.problem.image);
                     break;
                 }
             }
