@@ -8,7 +8,7 @@
 Plugin Name: CAPTCHA
 Plugin URI: https://defected.dev
 Description: Any type of CAPTCHA, any form.
-Version: 2.0.0
+Version: 2.0.1
 Author: defected.dev
 Author URI: https://defected.dev
 Plugin update URI: null
