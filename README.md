@@ -2,6 +2,6 @@
 
 Osclass CAPTCHA plugin - reCAPTCHA, hCaptcha, math, text, QnA.
 
-## Download
+## Download link
 
-Download from **releases** to get the proper file!
+[Click here (dftd_captcha.zip)](https://github.com/patriksh/Osclass-CAPTCHA/releases/latest/download/dftd_captcha.zip)
